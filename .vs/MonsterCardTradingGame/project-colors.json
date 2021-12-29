@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "cf6afac0-7bf8-4324-9654-e7598b3d559b": {
+      "ProjectGuid": "cf6afac0-7bf8-4324-9654-e7598b3d559b",
+      "DisplayName": "MonsterCardTradingGame",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
