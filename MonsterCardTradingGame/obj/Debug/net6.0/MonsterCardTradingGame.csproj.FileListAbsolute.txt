@@ -1,0 +1,15 @@
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\bin\Debug\net6.0\MonsterCardTradingGame.exe
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\bin\Debug\net6.0\MonsterCardTradingGame.deps.json
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\bin\Debug\net6.0\MonsterCardTradingGame.runtimeconfig.json
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\bin\Debug\net6.0\MonsterCardTradingGame.dll
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\bin\Debug\net6.0\ref\MonsterCardTradingGame.dll
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\bin\Debug\net6.0\MonsterCardTradingGame.pdb
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.csproj.AssemblyReference.cache
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.AssemblyInfoInputs.cache
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.AssemblyInfo.cs
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.csproj.CoreCompileInputs.cache
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.dll
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\ref\MonsterCardTradingGame.dll
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.pdb
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.genruntimeconfig.cache

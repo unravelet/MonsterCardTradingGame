@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace MonsterCardTradingGame.Models {
     class Card {
-        string _name;
-        int _damage;
-        string _description;
-        enum ElementalType { fire, water, normal };
-        enum Monster { 
+       
+        protected string _name;
+        protected int _damage;
+        protected string _description;
+        protected enum ElementalType { Fire, Water, Normal };
+        protected enum Monster { 
             Goblin, 
             Dragon,
             Wizard,
@@ -18,8 +19,8 @@ namespace MonsterCardTradingGame.Models {
             Knight,
             Kraken,
             Elf
-        }
-        enum Spell { fire, water, normal };
+        };
+
 
         public string Name { get { return _name; } }
         public int Damage { get { return _damage;}  }

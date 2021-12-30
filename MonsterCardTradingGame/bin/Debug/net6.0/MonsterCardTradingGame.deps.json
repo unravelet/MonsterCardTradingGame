@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MonsterCardTradingGame/1.0.0": {
+        "runtime": {
+          "MonsterCardTradingGame.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MonsterCardTradingGame/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
