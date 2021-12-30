@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\MonsterCardTradingGame.csproj",
-      "projectName": "MonsterCardTradingGame",
-      "projectPath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\MonsterCardTradingGame.csproj",
+      "projectUniqueName": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\MTCG.csproj",
+      "projectName": "MTCG",
+      "projectPath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\MTCG.csproj",
       "packagesPath": "C:\\Users\\rebek\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\obj\\",
       "projectStyle": "PackageReference",

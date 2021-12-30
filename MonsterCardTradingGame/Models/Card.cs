@@ -8,6 +8,7 @@ namespace MonsterCardTradingGame.Models {
     class Card {
         string _name;
         int _damage;
+        string _description;
         enum ElementalType { fire, water, normal };
         enum Monster { 
             Goblin, 
