@@ -5,10 +5,9 @@ using System.Diagnostics;
 
 namespace MonsterCardTradingGame {
     class Program {
-        public static void Main(string[] args) {
-             MonsterCard card = new MonsterCard();
-
-           
+        static void Main(string[] args) {
+            //MyServer server = new MyServer();
+           Database database = new Database();
         
         }
 

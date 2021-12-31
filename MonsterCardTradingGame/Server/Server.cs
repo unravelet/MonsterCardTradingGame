@@ -9,22 +9,20 @@ using System.Net.Sockets;
 
 namespace MonsterCardTradingGame.Server {
     class MyServer {
-
-
         public MyServer() {
             Console.WriteLine("A simple server running...\n");
 
-            //strg .
+            //strg . -> dependencies
             TcpListener serverListener = new TcpListener(IPAddress.Loopback, 8000); //loopback -> localhost
-            serverListener.Start(5); //how big is queue -> 5
+            serverListener.Start(5); //queue length -> 5
 
             while (true) {
 
                 TcpClient clientSocket = serverListener.AcceptTcpClient();
                 new Task(() => {
                     try {
-                        var writer = new StreamWriter(clientSocket.GetStream());
-                        var reader = new StreamReader(clientSocket.GetStream());
+                        StreamWriter writer = new StreamWriter(clientSocket.GetStream());
+                        StreamReader reader = new StreamReader(clientSocket.GetStream());
 
                         writer.WriteLine("Welcome to my server!");
                         writer.WriteLine("Please enter your command...");
@@ -42,8 +40,9 @@ namespace MonsterCardTradingGame.Server {
                         Console.WriteLine($"error occured {e.Message}");
                     }
                 }).Start();
-            }
 
+
+            }
 
         }
 

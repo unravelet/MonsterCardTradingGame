@@ -89,11 +89,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\MonsterCardTradingGame.csproj",
-      "projectName": "MonsterCardTradingGame",
-      "projectPath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\MonsterCardTradingGame.csproj",
+      "projectUniqueName": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\Client\\Client.csproj",
+      "projectName": "Client",
+      "projectPath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\Client\\Client.csproj",
       "packagesPath": "C:\\Users\\rebek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\obj\\",
+      "outputPath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rebek\\AppData\\Roaming\\NuGet\\NuGet.Config",

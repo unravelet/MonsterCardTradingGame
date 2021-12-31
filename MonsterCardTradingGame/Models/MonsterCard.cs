@@ -21,7 +21,7 @@ namespace MonsterCardTradingGame.Models {
             _monster = (Monster)_monsterRoll;
             _elemental = (ElementalType)_elementalRoll;
 
-            Console.WriteLine("Card is " + _elemental + _monster );
+            Console.WriteLine("Monstercard is " + _elemental + _monster );
         }
 
     }

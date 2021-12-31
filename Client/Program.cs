@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Net.Sockets;
 
-namespace MonsterCardTradingGame.Server {
-    class Client {
-
-        public Client() {
+namespace Client {
+    class Program {
+        static void Main(string[] args) {
             Console.WriteLine("A simple Client!");
 
             TcpClient clientSocket = new TcpClient("localhost", 8000);
@@ -28,6 +23,5 @@ namespace MonsterCardTradingGame.Server {
             }
             writer.WriteLine("quit");
         }
-
     }
 }

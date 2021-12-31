@@ -13,3 +13,5 @@ C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\De
 C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\ref\MonsterCardTradingGame.dll
 C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.pdb
 C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.genruntimeconfig.cache
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\bin\Debug\net6.0\Npgsql.dll
+C:\Users\rebek\source\repos\MonsterCardTradingGame\MonsterCardTradingGame\obj\Debug\net6.0\MonsterCardTradingGame.csproj.CopyComplete
