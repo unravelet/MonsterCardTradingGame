@@ -7,7 +7,9 @@ namespace MonsterCardTradingGame {
     class Program {
         static void Main(string[] args) {
             //MyServer server = new MyServer();
-           Database database = new Database();
+
+            User user = new User("Bekki", "123");
+            user.BuyPackage();
         
         }
 

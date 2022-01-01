@@ -16,13 +16,70 @@ namespace MonsterCardTradingGame.Models {
 
         public MonsterCard() {
             _monsterRoll = random.Next(0, 7);
-            _elementalRoll = random.Next(0, 3);
+            _elementalRoll = random.Next(0, 7);
 
             _monster = (Monster)_monsterRoll;
             _elemental = (ElementalType)_elementalRoll;
 
-            Console.WriteLine("Monstercard is " + _elemental + _monster );
+            _damage = AddRandomDamage();
+
+            _name = _elemental + "" + _monster + " (" + _damage + " damage)";
+            AddDescription(_monsterRoll);
+
+            
+            Console.WriteLine(_name );
         }
+
+        
+        public void AddDescription(int roll) {
+
+            switch (roll) {
+                case 0:
+                    GoblinDescription();
+                    break;
+                case 1:
+                    DragonDescription();
+                    break;
+                case 2:
+                    WizardDescription();
+                    break;
+                case 3:
+                    OrkDescription();
+                    break;
+                case 4:
+                    KnightDescription();
+                    break;
+                case 5:
+                    KrakenDescription();
+                    break;
+                case 6:
+                    ElfDescription();
+                    break;
+            }
+        }
+
+        public void GoblinDescription() {
+            _description = "";
+        }
+        public void DragonDescription() {
+            _description = "";
+        }
+        public void WizardDescription() {
+            _description = "";
+        }
+        public void OrkDescription() {
+            _description = "";
+        }
+        public void KnightDescription() {
+            _description = "";
+        }
+        public void KrakenDescription() {
+            _description = "";
+        }
+        public void ElfDescription() {
+            _description = "";
+        }
+
 
     }
 }
