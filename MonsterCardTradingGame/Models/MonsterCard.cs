@@ -11,22 +11,18 @@ namespace MonsterCardTradingGame.Models {
         int _monsterRoll;
         int _elementalRoll;
 
-        Monster _monster;
-        ElementalType _elemental;
-
         public MonsterCard() {
             _monsterRoll = random.Next(0, 7);
             _elementalRoll = random.Next(0, 7);
 
             _monster = (Monster)_monsterRoll;
             _elemental = (ElementalType)_elementalRoll;
-
+            _isSpell = false;
             _damage = AddRandomDamage();
-
             _name = _elemental + "" + _monster + " (" + _damage + " damage)";
+
             AddDescription(_monsterRoll);
 
-            
             Console.WriteLine(_name );
         }
 

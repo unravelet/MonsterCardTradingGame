@@ -8,9 +8,11 @@ namespace MonsterCardTradingGame {
         static void Main(string[] args) {
             //MyServer server = new MyServer();
 
-            User user = new User("Bekki", "123");
-            user.BuyPackage();
-        
+            //User user = new User("Bekki", "123");
+            //user.BuyPackage();
+
+            Card card = new Card();
+               
         }
 
     }
