@@ -10,14 +10,13 @@ namespace MonsterCardTradingGame.Models {
         Random random = new Random();
         int _elementalRoll;
         
-
         public SpellCard() {
             _elementalRoll = random.Next(0, 7);
             _elemental = (ElementalType)_elementalRoll;
             _isSpell = true;
             _damage = AddRandomDamage();
             _name = _elemental + "Spell" + " (" + _damage + " damage)";
-
+           
             AddDescription(_elementalRoll);
             
             Console.WriteLine(_name);

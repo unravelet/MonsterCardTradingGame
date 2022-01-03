@@ -10,6 +10,8 @@ namespace MonsterCardTradingGame.Models {
         Random random = new Random();
         int _monsterRoll;
         int _elementalRoll;
+        
+        
 
         public MonsterCard() {
             _monsterRoll = random.Next(0, 7);
