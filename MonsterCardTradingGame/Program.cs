@@ -1,7 +1,5 @@
 ﻿
 using MonsterCardTradingGame.Models;
-using MonsterCardTradingGame.Server;
-using System.Diagnostics;
 
 namespace MonsterCardTradingGame {
     class Program {
@@ -26,6 +24,8 @@ namespace MonsterCardTradingGame {
 
             Battle battle = new Battle(user1, user2);
             battle.StartBattle();
+
+
 
         }
 

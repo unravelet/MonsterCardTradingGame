@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MonsterCardTradingGame.Models {
+﻿namespace MonsterCardTradingGame.Models {
     public class Card {
         int _roll;
         protected string _name;
         protected int _damage;
         protected string _description;
         protected bool _isSpell;
-        public enum ElementalType { 
-            Fire, 
-            Water, 
+        public enum ElementalType {
+            Fire,
+            Water,
             Normal,
             Ground,
             Ice,
@@ -30,8 +24,9 @@ namespace MonsterCardTradingGame.Models {
         //Light -> Dark, Ice
         //Dark -> Normal, Dark
 
-        public enum Monster { 
-            Goblin, 
+        public enum Monster {
+            Spell,
+            Goblin,
             Dragon,
             Wizard,
             Ork,
@@ -40,20 +35,17 @@ namespace MonsterCardTradingGame.Models {
             Elf
         };
         protected Monster _monster;
-        
+
 
         public string Name { get { return _name; } }
         public int Damage { get { return _damage; } }
         public string Description { get { return _description; } }
-        public bool IsSpell { get { return _isSpell;} }
-        public  ElementalType ElementType { get { return _elemental; } }
+        public bool IsSpell { get { return _isSpell; } }
+        public ElementalType ElementType { get { return _elemental; } }
         public Monster MonsterType { get { return _monster; } }
 
 
-        public Card() {
-            
-
-        }
+      
 
         public Card GetCard() {
             Random random = new Random();
@@ -61,7 +53,7 @@ namespace MonsterCardTradingGame.Models {
 
             if (_roll == 0) {
                 SpellCard spell = new SpellCard();
-                return spell; 
+                return spell;
             }
             else /*if (_roll == 1)*/ {
                 MonsterCard monster = new MonsterCard();
@@ -72,20 +64,19 @@ namespace MonsterCardTradingGame.Models {
 
         public int AddRandomDamage() {
             Random random = new Random();
-            int roll = random.Next(0, 101);
+            int roll = random.Next(1, 101);
             int randomDmg;
-            Console.WriteLine("roll: " + roll);
             //20%
             if (roll <= 20) {
                 randomDmg = 10;
             }//18%
-            else if(roll <= 38) {
+            else if (roll <= 38) {
                 randomDmg = 20;
             }//16%
-            else if(roll <= 54) {
+            else if (roll <= 54) {
                 randomDmg = 30;
             }//14%
-            else if(roll <= 68) {
+            else if (roll <= 68) {
                 randomDmg = 40;
             }//12%
             else if (roll <= 80) {
@@ -103,9 +94,7 @@ namespace MonsterCardTradingGame.Models {
             else {
                 randomDmg = 90;
             }
-
             return randomDmg;
-
         }
 
         public bool IsEffective(Card attacker, Card defender) {//damage doubled
@@ -136,7 +125,7 @@ namespace MonsterCardTradingGame.Models {
             }
         }
 
-        public bool IsNotEffective(Card defender, Card attacker) { //damage halved
+        public bool IsNotEffective(Card attacker, Card defender) { //damage halved
             if (defender.ElementType == ElementalType.Fire && (attacker.ElementType == ElementalType.Normal || attacker.ElementType == ElementalType.Ice)) {
                 return true;
             }
@@ -172,7 +161,7 @@ namespace MonsterCardTradingGame.Models {
                 else if (attacker.MonsterType == Monster.Ork && defender.MonsterType == Monster.Wizard) {
                     return false;
                 }
-                else if (attacker.MonsterType == Monster.Elf && attacker.ElementType == ElementalType.Fire && defender.MonsterType == Monster.Dragon) {
+                else if (defender.MonsterType == Monster.Elf && defender.ElementType == ElementalType.Fire && attacker.MonsterType == Monster.Dragon) {
                     return false;
                 }
                 else {
@@ -195,7 +184,6 @@ namespace MonsterCardTradingGame.Models {
                 return false;
             }
         }
-
 
 
     }

@@ -6,7 +6,7 @@
 
         public List<Card> _userCards;
         public List<Card> _deck;
-        
+
 
         public string Username {
             get { return _username; }
@@ -18,13 +18,13 @@
         }
         public string Password { get { return _password; } }
         public int Coins {
-            get { return _coins; } //TODO setter doesnt work, keeps adding
+            get { return _coins; }
             set {
-                if (_coins - value < 0) {
-                    _coins = 0;
-                }
-                else if (value < 0) {
+                if (value < 0) {
                     _coins -= value;
+                    if (_coins < 0) {
+                        _coins = 0;
+                    }
                 }
                 else if (value > 0) {
                     _coins += value;
@@ -73,7 +73,6 @@
 
             Console.WriteLine("Choose 4 cards for your deck");
 
-
             for (int j = 0; j < 4; j++) {
                 Console.WriteLine("\nyour cards: ");
                 for (int i = 0; i < _userCards.Count; i++) {
@@ -94,9 +93,10 @@
                 }
             }
 
+        }
 
-
-
+        public void AddCardToDeck(Card card) {
+            _deck.Add(card);
         }
 
 

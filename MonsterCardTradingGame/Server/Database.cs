@@ -9,35 +9,21 @@ namespace MonsterCardTradingGame.Server {
     class Database {
 
 
-        public Database() {
-            Connect();
-        }
-
-        public async void Connect() {
+        public void TestInsert(string username, string password) {
 
             var connString = "Host=localhost;Username=postgres;Password=KnautschgesichtmitDatenbank;Database=MCTG";
 
-            await using var conn = new NpgsqlConnection(connString);
-            await conn.OpenAsync();
+            NpgsqlConnection conn = new NpgsqlConnection(connString);
+            conn.Open();
 
-            // Insert some data
-            await using (var cmd = new NpgsqlCommand("INSERT INTO Users username VALUES hi", conn)) {
-                cmd.Parameters.AddWithValue("p", "Hello world");
-                await cmd.ExecuteNonQueryAsync();
-            }
+            var cmd = new NpgsqlCommand("INSERT INTO Users (name) VALUES (@n,@p", conn);
+            cmd.Parameters.AddWithValue("n", username);
+            cmd.Parameters.AddWithValue("p", username);
 
-            // Retrieve all rows
-            await using (var cmd = new NpgsqlCommand("SELECT username FROM Users", conn))
-            await using (var reader = await cmd.ExecuteReaderAsync()) {
-                while (await reader.ReadAsync())
-                    Console.WriteLine(reader.GetString(0));
-            }
+            cmd.ExecuteNonQuery();
 
         }
 
         
-
-        
-
     }
 }
