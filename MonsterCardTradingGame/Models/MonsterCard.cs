@@ -21,7 +21,6 @@
             Console.WriteLine(_name);
         }
 
-
         public void AddDescription(int roll) {
 
             switch (roll) {

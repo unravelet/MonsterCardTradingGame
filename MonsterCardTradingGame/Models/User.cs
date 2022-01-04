@@ -3,6 +3,7 @@
         string _username;
         string _password;
         int _coins;
+        public bool _booster;
 
         public List<Card> _userCards;
         public List<Card> _deck;
@@ -31,6 +32,8 @@
                 }
             }
         }
+
+
 
         public User(string username, string password) {
             _username = username;

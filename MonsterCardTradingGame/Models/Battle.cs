@@ -27,7 +27,8 @@
                 _player2 = user1;
                 PrintAndAddLog("Player 1: " + user2.Username + "\nPlayer 2: " + user1.Username);
             }
-
+            _player1._booster = true;
+            _player2._booster = true;
         }
 
         public void StartBattle() {
@@ -45,6 +46,9 @@
                 //Console.WriteLine(_player2Card.Name + " is " + _player2Card.ElementType + _player2Card.MonsterType + _player2Card.IsSpell);
 
                 Fight(_player1Card, _player2Card);
+
+                //wait for input
+                Console.ReadLine();
 
                 _round++;
             }
@@ -82,12 +86,12 @@
 
             if (_player1._deck != null && _player2._deck != null) {
                 //player 1 attacks
-                if (AttackerWins(p1Card, p2Card)) {
+                if (AttackerWins(_player1, p1Card, p2Card)) {
                     PrintAndAddLog("\n" + _player1.Username + "'s " + p1Card.Name + " wins!");
                     _player1._deck.Add(p2Card);
                     _player2._deck.Remove(p2Card);
                 }//player 2 attacks
-                else if (AttackerWins(p2Card, p1Card)) {
+                else if (AttackerWins(_player2, p2Card, p1Card)) {
                     PrintAndAddLog("\n" + _player2.Username + "'s " + p2Card.Name + " wins!");
                     _player2._deck.Add(p1Card);
                     _player1._deck.Remove(p1Card);
@@ -99,9 +103,9 @@
         }
 
 
-        public bool AttackerWins(Card attacker, Card defender) {
-            int attDmg = attacker.Damage;
-            int defDmg = defender.Damage;
+        public bool AttackerWins(User player, Card attacker, Card defender) {
+            double attDmg = attacker.Damage;
+            double defDmg = defender.Damage;
 
             PrintAndAddLog(attacker.Name + " attacks " + defender.Name);
 
@@ -112,6 +116,7 @@
             }
 
             if (attacker.CanAttack(attacker, defender)) {
+
                 //if its not a monster fight
                 if (attacker.IsSpell || defender.IsSpell) {
                     if (attacker.IsEffective(attacker, defender)) {
@@ -124,6 +129,9 @@
                         attDmg /= 2;
                         defDmg *= 2;
                     }
+                }
+                if(Booster(player, attacker)) {
+                    attDmg = BoosterDmg(attDmg);
                 }
                 PrintAndAddLog(attDmg + " VS " + defDmg);
                 if (attDmg > defDmg) {
@@ -144,7 +152,57 @@
             log.CreateBattleLog(text);
         }
 
+        public bool Booster(User player, Card playerCard) {
+            if (player._booster) {
+                if (player._deck.Count <= 2) {
+                    PrintAndAddLog(player.Username + ", do you want to use your Card booster? (Y/N)");
+                    string input = "";
+                    while (input != "Y" && input != "N") {
+                        input = Console.ReadLine();
+                        PrintAndAddLog(input);
+                    }
+                    if (input == "Y") {
+                        player._booster = false;
+                        return true;
+                    }
+                    else if (input == "N") {
+                        return false;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else {
+                    return false;
+                }
+            }
+            else { 
+                return false; 
+            }
+            
+        }
 
+        public double BoosterDmg(double attDmg) {
+            Random random = new Random();
+            int roll = random.Next(0, 4);
+
+            switch (roll) {
+                case 0:
+                    attDmg *= 1.2;
+                    break;
+                case 1:
+                    attDmg *= 1.3;
+                    break;
+                case 2:
+                    attDmg *= 1.4;
+                    break;
+                case 3:
+                    attDmg *= 1.5;
+                    break;
+
+            }
+            return attDmg;
+        }
 
 
     }
