@@ -15,7 +15,12 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "bdebe73c-aa05-422f-9e68-c6282f11ec19": {
+      "ProjectGuid": "bdebe73c-aa05-422f-9e68-c6282f11ec19",
+      "DisplayName": "DAL",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

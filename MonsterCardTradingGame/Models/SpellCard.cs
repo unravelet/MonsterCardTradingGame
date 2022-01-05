@@ -71,7 +71,7 @@
                 "creation, Snow.";
         }
         public void LightDescription() {
-            _description = "";
+            _description = " ";
         }
         public void DarkDescription() {
             _description = "Darkness was the most powerful element, not even the god of Darkness themselves can fully control it. It consumes everything " +
