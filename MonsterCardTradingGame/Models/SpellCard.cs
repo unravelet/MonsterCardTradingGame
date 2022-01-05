@@ -4,12 +4,15 @@
         Random random = new Random();
         int _elementalRoll;
 
-        public SpellCard() {
+        public SpellCard(Guid id, string owner) {
+            _id = id;
+            _owner = owner;
             _elementalRoll = random.Next(0, 7);
             _elemental = (ElementalType)_elementalRoll;
             _isSpell = true;
             _damage = AddRandomDamage();
-            _name = _elemental + "Spell" + "(" + _damage + ")";
+            _speed = AddSpeed(_damage);
+            _name = _elemental + "Spell" + "(" + _damage + "|" + _speed + ")";
 
             AddDescription(_elementalRoll);
 

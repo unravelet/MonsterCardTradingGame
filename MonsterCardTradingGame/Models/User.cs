@@ -1,5 +1,7 @@
 ﻿namespace MonsterCardTradingGame.Models {
-    class User {
+    public class User {
+
+        Guid _uid;
         string _username;
         string _password;
         int _coins;
@@ -9,13 +11,11 @@
         public List<Card> _deck;
 
 
+
+        public Guid Uid { get { return _uid; } }
         public string Username {
             get { return _username; }
-            set {
-                //unique username
-                //TODO check database for username
-                _username = value;
-            }
+            
         }
         public string Password { get { return _password; } }
         public int Coins {
@@ -35,14 +35,15 @@
 
 
 
-        public User(string username, string password) {
+        public User(string username, string password, Guid uid) {
+            _uid = uid;
             _username = username;
             _password = password;
             _coins = 20;
             _userCards = new List<Card>();
         }
 
-        public void BuyPackage() {
+        public void BuyPackage(string username) {
             Console.WriteLine("How many packages do you want to buy? (5 coins per package)");
             int packNum = Convert.ToInt32(Console.ReadLine());
 
@@ -50,7 +51,7 @@
                 for (int i = 0; i < packNum; i++) {
 
                     _coins -= 5;
-                    Package package = new Package();
+                    Package package = new Package(username);
                     _userCards.AddRange(package._package);
 
                 }
@@ -73,6 +74,7 @@
         public void CreateDeck() {//TODO database 
             _deck = new List<Card>();
             int iplusone;
+            int cardNum = -1;
 
             Console.WriteLine("Choose 4 cards for your deck");
 
@@ -82,8 +84,8 @@
                     iplusone = i + 1;
                     Console.WriteLine("(" + iplusone + ") " + _userCards[i].Name);
                 }
-
-                int cardNum = Convert.ToInt32(Console.ReadLine());
+                
+                cardNum = Convert.ToInt32(Console.ReadLine());
                 _deck.Add(_userCards[cardNum - 1]);
                 _userCards.RemoveAt(cardNum - 1);
 

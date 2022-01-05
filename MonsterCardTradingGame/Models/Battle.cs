@@ -1,5 +1,6 @@
 ﻿namespace MonsterCardTradingGame.Models {
-    class Battle {
+    public class Battle {
+        Random random = new Random();
         int _round;
         int _coinThrow;
         User _player1;
@@ -15,18 +16,10 @@
             PrintAndAddLog("\n" + user1.Username + " VS " + user2.Username + "\n");
             _round = 1;
 
-            Random random = new Random();
-            _coinThrow = random.Next(0, 2);
-            if (_coinThrow == 0) {
-                _player1 = user1;
-                _player2 = user2;
-                PrintAndAddLog("Player 1: " + user1.Username + "\nPlayer 2: " + user2.Username);
-            }
-            else {
-                _player1 = user2;
-                _player2 = user1;
-                PrintAndAddLog("Player 1: " + user2.Username + "\nPlayer 2: " + user1.Username);
-            }
+            _player1 = user1;
+            _player2 = user2;
+            PrintAndAddLog("Player 1: " + user1.Username + "\nPlayer 2: " + user2.Username);
+           
             _player1._booster = true;
             _player2._booster = true;
         }
@@ -45,12 +38,32 @@
                 //Console.WriteLine(_player1Card.Name + " is " + _player1Card.ElementType + _player1Card.MonsterType + _player1Card.IsSpell);
                 //Console.WriteLine(_player2Card.Name + " is " + _player2Card.ElementType + _player2Card.MonsterType + _player2Card.IsSpell);
 
-                Fight(_player1Card, _player2Card);
+                if(_player1Card.Speed > _player2Card.Speed) {
+                    Fight(_player1, _player1Card, _player2, _player2Card);
+                }
+                else if(_player2Card.Speed > _player1Card.Speed) {
+                    Fight(_player2, _player2Card, _player1, _player1Card);
+                }
+                else {
+                    _coinThrow = random.Next(0, 2);
+                    if(_coinThrow == 0) {
+                        Fight(_player1,_player1Card,_player2, _player2Card);
+                    }
+                    else {
+                        Fight(_player2, _player2Card,_player1, _player1Card);
+                    }
+                }
+                Console.WriteLine(_player1.Username + "'s cards in deck: " + _player1._deck.Count);
+                Console.WriteLine(_player2.Username + "'s cards in deck: " + _player2._deck.Count);
+
 
                 //wait for input
-                Console.ReadLine();
+                //Console.ReadLine();
 
                 _round++;
+            }
+            if(_round > 100) {
+                PrintAndAddLog("DRAW");
             }
         }
 
@@ -82,19 +95,19 @@
         }
 
 
-        public void Fight(Card p1Card, Card p2Card) {
+        public void Fight(User player1, Card p1Card, User player2, Card p2Card) {
 
-            if (_player1._deck != null && _player2._deck != null) {
+            if (player1._deck != null && player2._deck != null) {
                 //player 1 attacks
-                if (AttackerWins(_player1, p1Card, p2Card)) {
-                    PrintAndAddLog("\n" + _player1.Username + "'s " + p1Card.Name + " wins!");
-                    _player1._deck.Add(p2Card);
-                    _player2._deck.Remove(p2Card);
+                if (AttackerWins(player1, p1Card, p2Card)) {
+                    PrintAndAddLog("\n" + player1.Username + "'s " + p1Card.Name + " wins!\n");
+                    player1._deck.Add(p2Card);
+                    player2._deck.Remove(p2Card);
                 }//player 2 attacks
-                else if (AttackerWins(_player2, p2Card, p1Card)) {
-                    PrintAndAddLog("\n" + _player2.Username + "'s " + p2Card.Name + " wins!");
-                    _player2._deck.Add(p1Card);
-                    _player1._deck.Remove(p1Card);
+                else if (AttackerWins(player2, p2Card, p1Card)) {
+                    PrintAndAddLog("\n" + player2.Username + "'s " + p2Card.Name + " wins!\n");
+                    player2._deck.Add(p1Card);
+                    player1._deck.Remove(p1Card);
                 }
                 else {
                     PrintAndAddLog("\ndraw");
@@ -133,6 +146,7 @@
                 if(Booster(player, attacker)) {
                     attDmg = BoosterDmg(attDmg);
                 }
+                
                 PrintAndAddLog(attDmg + " VS " + defDmg);
                 if (attDmg > defDmg) {
                     return true;

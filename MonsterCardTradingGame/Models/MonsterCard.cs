@@ -6,7 +6,9 @@
         int _elementalRoll;
 
 
-        public MonsterCard() {
+        public MonsterCard(Guid id, string owner) {
+            _id = id;
+            _owner = owner; 
             _monsterRoll = random.Next(1, 8);
             _elementalRoll = random.Next(0, 7);
 
@@ -14,7 +16,8 @@
             _elemental = (ElementalType)_elementalRoll;
             _isSpell = false;
             _damage = AddRandomDamage();
-            _name = _elemental + "" + _monster + "(" + _damage + ")";
+            _speed = AddSpeed(_damage);
+            _name = _elemental + "" + _monster + "(" + _damage + "|" + _speed + ")";
 
             AddDescription(_monsterRoll);
 

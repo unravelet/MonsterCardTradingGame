@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "u2nnvlKqNlhCA5ifbp1X6TcnSeHaWusCRm+yCG5jx6O+uokN+BKF+3ndH/4+uVa7KombM3qjs4grlDWnbdnzhw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\DAL\\DAL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rebek\\.nuget\\packages\\npgsql\\6.0.2\\npgsql.6.0.2.nupkg.sha512",
+    "C:\\Users\\rebek\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
