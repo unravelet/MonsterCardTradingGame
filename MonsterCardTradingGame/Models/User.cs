@@ -7,7 +7,7 @@
         int _coins;
         public bool _booster;
 
-        public List<Card> _userCards;
+        public List<Card> _stack;
         public List<Card> _deck;
 
 
@@ -40,7 +40,7 @@
             _username = username;
             _password = password;
             _coins = coins;
-            _userCards = new List<Card>();
+            _stack = new List<Card>();
         }
 
         public void BuyPackage(User user) {
@@ -52,7 +52,7 @@
 
                     _coins -= 5;
                     Package package = new Package(user);
-                    _userCards.AddRange(package._package);
+                    _stack.AddRange(package._package);
 
                 }
             }
@@ -63,15 +63,15 @@
             //debugging
             Console.WriteLine("\nall of your cards: ");
 
-            for (int i = 0; i < _userCards.Count; i++) {
-                Console.WriteLine(_userCards[i].Name);
+            for (int i = 0; i < _stack.Count; i++) {
+                Console.WriteLine(_stack[i].Name);
             }
             Console.WriteLine("\nYou have " + _coins + " coins left.");
 
         }
 
 
-        public void CreateDeck() {//TODO database 
+        public void CreateDeck() {
             _deck = new List<Card>();
             int iplusone;
             int cardNum = -1;
@@ -80,14 +80,14 @@
 
             for (int j = 0; j < 4; j++) {
                 Console.WriteLine("\nyour cards: ");
-                for (int i = 0; i < _userCards.Count; i++) {
+                for (int i = 0; i < _stack.Count; i++) {
                     iplusone = i + 1;
-                    Console.WriteLine("(" + iplusone + ") " + _userCards[i].Name);
+                    Console.WriteLine("(" + iplusone + ") " + _stack[i].Name);
                 }
                 
                 cardNum = Convert.ToInt32(Console.ReadLine());
-                _deck.Add(_userCards[cardNum - 1]);
-                _userCards.RemoveAt(cardNum - 1);
+                _deck.Add(_stack[cardNum - 1]);
+                _stack.RemoveAt(cardNum - 1);
 
                 Console.WriteLine("\nyour deck: ");
 

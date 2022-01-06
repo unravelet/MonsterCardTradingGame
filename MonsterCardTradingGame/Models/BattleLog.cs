@@ -2,9 +2,10 @@
     class BattleLog {
 
         string _path;
-
+        string _timeStamp;
         public BattleLog(string filename) {
-            _path = "D:/" + filename + ".txt";
+            _timeStamp = GetTimeStamp();
+            _path = "D:/" + _timeStamp + " " + filename + ".txt";
 
         }
 
@@ -18,6 +19,12 @@
                 Console.WriteLine(e.Message);
             }
 
+        }
+
+        public string GetTimeStamp() {
+
+
+            return DateTime.Now.ToString("yyyyMMddHHmmssfff");
         }
 
     }

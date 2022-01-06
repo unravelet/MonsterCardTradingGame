@@ -87,13 +87,13 @@ namespace DAL.Repository {
 
 
         //works
-        public List<Card> GetUserStack(User user) { 
+        public List<Card> GetUserStack(string username) { 
         
             List<Card> stack = new List<Card>();
 
             string sql = "SELECT * FROM cards WHERE owner=@o";
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
-            cmd.Parameters.AddWithValue("o", user.Username);
+            cmd.Parameters.AddWithValue("o", username);
 
             using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
 
