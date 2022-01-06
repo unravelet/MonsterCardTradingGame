@@ -9,9 +9,9 @@ namespace DAL.Repository {
 
         public bool Create(T data);
         public bool Update(T data);
-        public T Read(Guid id);
+        public T Read(string name);
         public List<T> ReadAll();
-        public bool Delete(Guid id);
+        public bool Delete(string name);
 
     }
 }

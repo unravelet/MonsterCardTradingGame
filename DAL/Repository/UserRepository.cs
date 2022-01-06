@@ -29,33 +29,33 @@ namespace DAL.Repository {
             }
         }
 
-        //works with GetUid(username)
-        public bool Delete(Guid id) {
-            string sql = "DELETE FROM users WHERE uid = @id";
+        //works
+        public bool Delete(string name) {
+            string sql = "DELETE FROM users WHERE username = @u";
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
-            cmd.Parameters.AddWithValue("id", id.ToString());
+            cmd.Parameters.AddWithValue("u", name);
 
-            if (_db.ExecuteNonQuery(cmd)) {
+            if (_db.ExecuteNonQuery(cmd) && DeleteUsersCards(name)) {
                 return true;
             }
             else {
                 return false;
             }
+
         }
 
-        public User Read(Guid id) {
+        public User Read(string name) {
             throw new NotImplementedException();
-
-
         }
 
+        //works
         public List<User> ReadAll() {
             
             List<User> list = new List<User>();
             string sql = "SELECT * FROM users";
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
 
-            using (NpgsqlDataReader reader = cmd.ExecuteReader()) {
+            using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
                 while (reader.Read()) { 
                     list.Add(new User(reader.GetValue(0).ToString(),    //username
                         new Guid(reader.GetValue(1).ToString()),        //uid
@@ -67,6 +67,7 @@ namespace DAL.Repository {
             }
         }
 
+        //works
         public bool Update(User data) {
             
             string sql = "UPDATE users SET password = @p, coins = @c WHERE username = @u";
@@ -83,16 +84,17 @@ namespace DAL.Repository {
             }
         }
 
+        //works
         public User FindUser(string username) {
 
-            string sql = "SELECT FROM users WHERE username = @u";
+            string sql = "SELECT * FROM users WHERE username = @u";
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
             cmd.Parameters.AddWithValue("u", username);
 
             using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
 
                 if (reader.Read()) {
-                    return new User(username,                           //username
+                    return new User(reader.GetValue(0).ToString(),      //username
                         new Guid(reader.GetValue(1).ToString()),        //uid
                         reader.GetValue(2).ToString(),                  //password
                         Convert.ToInt32(reader.GetValue(3))             //coins
@@ -120,6 +122,7 @@ namespace DAL.Repository {
 
         }
 
+        //works
         public string GetUid(string username) {
             string sql = "SELECT uid FROM users WHERE username = @u";
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
@@ -134,6 +137,19 @@ namespace DAL.Repository {
             }
             return null;
 
+        }
+
+        public bool DeleteUsersCards(string owner) {
+            string sql = "DELETE FROM cards WHERE owner = @o";
+            NpgsqlCommand cmd = new NpgsqlCommand(sql);
+            cmd.Parameters.AddWithValue("o", owner);
+
+            if (_db.ExecuteNonQuery(cmd)) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     }
 }
