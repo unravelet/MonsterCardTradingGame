@@ -53,9 +53,8 @@
                         Fight(_player2, _player2Card,_player1, _player1Card);
                     }
                 }
-                Console.WriteLine(_player1.Username + "'s cards in deck: " + _player1._deck.Count);
-                Console.WriteLine(_player2.Username + "'s cards in deck: " + _player2._deck.Count);
-
+                PrintAndAddLog(_player1.Username + "'s cards in deck: " + _player1._deck.Count);
+                PrintAndAddLog(_player2.Username + "'s cards in deck: " + _player2._deck.Count);
 
                 //wait for input
                 //Console.ReadLine();

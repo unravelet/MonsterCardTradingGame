@@ -43,7 +43,7 @@
 
         public Guid Id { get { return _id; } }
         public string Owner { get { return _owner;} }
-        public string Name { get { return _name; } }
+        public string Name { get { return _name; }  }
         public int Damage { get { return _damage; } }
         public int Speed { get { return _speed; } } 
         public string Description { get { return _description; } }
@@ -52,151 +52,36 @@
         public Monster MonsterType { get { return _monster; } }
 
 
+        public Card(Guid id, string owner, string name, int damage, int speed, ElementalType element, Monster monsterType, bool isSpell, string description) {
+            _id = id;
+            _owner = owner;
+            _name = name;
+            _damage = damage;
+            _speed = speed;
+            _elemental = element;
+            _monster = monsterType;
+            _isSpell = isSpell;
+            _description = description;
+
+        }
+
+
+        //public Card GetCard(string owner) {
+
+        //    _roll = random.Next(0, 2);
+
+        //    if (_roll == 0) {
+        //        SpellCard spell = new SpellCard(Guid.NewGuid(), owner);
+        //        return spell;
+        //    }
+        //    else /*if (_roll == 1)*/ {
+        //        MonsterCard monster = new MonsterCard(Guid.NewGuid(), owner);
+        //        return monster;
+        //    }
+
+        //}
+
         
-
-        public Card GetCard(string owner) {
-
-            
-            
-            _roll = random.Next(0, 2);
-
-            if (_roll == 0) {
-                SpellCard spell = new SpellCard(Guid.NewGuid(), owner);
-                return spell;
-            }
-            else /*if (_roll == 1)*/ {
-                MonsterCard monster = new MonsterCard(Guid.NewGuid(), owner);
-                return monster;
-            }
-
-        }
-
-        public int AddRandomDamage() {
-            Random random = new Random();
-            int roll = random.Next(1, 101);
-            int randomDmg;
-            //20%
-            if (roll <= 20) {
-                randomDmg = 10;
-            }//18%
-            else if (roll <= 38) {
-                randomDmg = 20;
-            }//16%
-            else if (roll <= 54) {
-                randomDmg = 30;
-            }//14%
-            else if (roll <= 68) {
-                randomDmg = 40;
-            }//12%
-            else if (roll <= 80) {
-                randomDmg = 50;
-            }//10%
-            else if (roll <= 90) {
-                randomDmg = 60;
-            }//6%
-            else if (roll <= 96) {
-                randomDmg = 70;
-            }//3%
-            else if (roll <= 99) {
-                randomDmg = 80;
-            }//1%
-            else {
-                randomDmg = 90;
-            }
-            return randomDmg;
-        }
-
-        public int AddSpeed(int dmg) {
-            
-            _roll = random.Next(1, 101);
-
-            switch (dmg) {
-                case 10: {
-                        if (_roll <= 80) {
-                            _speed = random.Next(5, 11);
-                        }
-                        else {
-                            _speed = random.Next(1, 5);
-                        }
-                        break;
-                    }
-                case 20: {
-                        if (_roll <= 70) {
-                            _speed = random.Next(5, 11);
-                        }
-                        else {
-                            _speed = random.Next(1, 5);
-                        }
-                        break;
-                    }
-                case 30: {
-                        if (_roll <= 60) {
-                            _speed = random.Next(5, 11);
-                        }
-                        else {
-                            _speed = random.Next(1, 5);
-                        }
-                        break;
-                    }
-                case 40: {
-                        if (_roll <= 50) {
-                            _speed = random.Next(5, 11);
-                        }
-                        else {
-                            _speed = random.Next(1, 5);
-                        }
-                        break;
-                    }
-                case 50: {
-                        if (_roll <= 30) {
-                            _speed = random.Next(5, 11);
-                        }
-                        else {
-                            _speed = random.Next(1, 5);
-                        }
-                        break;
-                    }
-                case 60: {
-                        if (_roll <= 20) {
-                            _speed = random.Next(5, 11);
-                        }
-                        else {
-                            _speed = random.Next(1, 5);
-                        }
-                        break;
-                    }
-                case 70: {
-                        if (_roll <= 10) {
-                            _speed = random.Next(5, 11);
-                        }
-                        else {
-                            _speed = random.Next(1, 5);
-                        }
-                        break;
-                    }
-                case 80: {
-                        if (_roll <= 5) {
-                            _speed = random.Next(5, 11);
-                        }
-                        else {
-                            _speed = random.Next(1, 5);
-                        }
-                        break;
-                    }
-                case 90: {
-                        if (_roll <= 2) {
-                            _speed = random.Next(5, 11);
-                        }
-                        else {
-                            _speed = random.Next(1, 5);
-                        }
-                        break;
-                    }
-            }
-
-
-            return _speed;
-        }
 
         public bool IsEffective(Card attacker, Card defender) {//damage doubled
 

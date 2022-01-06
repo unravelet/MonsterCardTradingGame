@@ -35,15 +35,15 @@
 
 
 
-        public User(string username, string password, Guid uid) {
+        public User(string username, Guid uid, string password, int coins) {
             _uid = uid;
             _username = username;
             _password = password;
-            _coins = 20;
+            _coins = coins;
             _userCards = new List<Card>();
         }
 
-        public void BuyPackage(string username) {
+        public void BuyPackage(User user) {
             Console.WriteLine("How many packages do you want to buy? (5 coins per package)");
             int packNum = Convert.ToInt32(Console.ReadLine());
 
@@ -51,7 +51,7 @@
                 for (int i = 0; i < packNum; i++) {
 
                     _coins -= 5;
-                    Package package = new Package(username);
+                    Package package = new Package(user);
                     _userCards.AddRange(package._package);
 
                 }
@@ -97,7 +97,6 @@
 
                 }
             }
-
         }
 
         public void AddCardToDeck(Card card) {

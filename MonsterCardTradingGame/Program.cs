@@ -6,25 +6,26 @@ namespace MonsterCardTradingGame {
         static void Main(string[] args) {
             //MyServer server = new MyServer();
             string name, password;
+            int coins = 20;
 
             Console.WriteLine("Creating User, please enter name and password: ");
             name = Console.ReadLine();
             password = Console.ReadLine();
             
-            User user1 = new User(name, password, Guid.NewGuid());
-            user1.BuyPackage(user1.Username);
+            User user1 = new User(name, Guid.NewGuid(), password, coins);
+            user1.BuyPackage(user1);
             user1.CreateDeck();
 
-            //Console.WriteLine("Creating User, please enter name and password: ");
-            //name = Console.ReadLine();
-            //password = Console.ReadLine();
-            //User user2 = new User(name, password);
-            //user2.BuyPackage(user2);
-            //user2.CreateDeck();
+            Console.WriteLine("Creating User, please enter name and password: ");
+            name = Console.ReadLine();
+            password = Console.ReadLine();
+            User user2 = new User(name, Guid.NewGuid(), password, coins);
+            user2.BuyPackage(user2);
+            user2.CreateDeck();
 
 
-            //Battle battle = new Battle(user1, user2);
-            //battle.StartBattle();
+            Battle battle = new Battle(user1, user2);
+            battle.StartBattle();
 
 
 

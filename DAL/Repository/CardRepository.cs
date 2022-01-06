@@ -20,7 +20,6 @@ namespace DAL.Repository {
         public bool Create(Card data) {
             string sql = "INSERT INTO Cards (id, owner, name, damage, speed, element, monster, isSpell, description) Values (@id,@o,@n,@d,@s,@e,@m,@is,@de)";
 
-            Console.WriteLine(data.Owner);
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
             cmd.Parameters.AddWithValue("id", data.Id.ToString());
             cmd.Parameters.AddWithValue("o", data.Owner);
@@ -63,6 +62,35 @@ namespace DAL.Repository {
 
         public bool Update(Card data) {
             throw new NotImplementedException();
+        }
+
+        public List<Card> GetUserStack(User user) { 
+        
+            List<Card> stack = new List<Card>();
+
+            string sql = "SELECT * FROM cards WHERE owner=@o";
+            NpgsqlCommand cmd = new NpgsqlCommand(sql);
+            cmd.Parameters.AddWithValue("o", user.Username);
+
+            using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
+
+                while (reader.Read()) { 
+                
+                    stack.Add(new Card(new Guid(reader.GetValue(0).ToString()),                                         //id
+                        reader.GetValue(1).ToString(),                                                                  //owner
+                        reader.GetValue(2).ToString(),                                                                  //name
+                        Convert.ToInt32(reader.GetValue(3)),                                                            //damage
+                        Convert.ToInt32(reader.GetValue(4)),                                                            //speed
+                        (Card.ElementalType)Enum.Parse(typeof(Card.ElementalType),reader.GetValue(5).ToString()),       //element
+                        (Card.Monster)Enum.Parse(typeof(Card.Monster), reader.GetValue(5).ToString()),                  //monster
+                        bool.Parse(reader.GetValue(7).ToString()),                                                      //isspell
+                        reader.GetValue(8).ToString()                                                                   //description
+                        ));                        
+                }
+                return stack;
+
+            }
+
         }
     }
 }
