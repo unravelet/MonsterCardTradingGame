@@ -26,17 +26,14 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "MonsterCardTradingGame/1.0.0": {
+      "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Npgsql": "6.0.2"
-        },
         "compile": {
-          "bin/placeholder/MonsterCardTradingGame.dll": {}
+          "bin/placeholder/Models.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MonsterCardTradingGame.dll": {}
+          "bin/placeholder/Models.dll": {}
         }
       }
     }
@@ -90,15 +87,15 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "MonsterCardTradingGame/1.0.0": {
+    "Models/1.0.0": {
       "type": "project",
-      "path": "../MonsterCardTradingGame/MonsterCardTradingGame.csproj",
-      "msbuildProject": "../MonsterCardTradingGame/MonsterCardTradingGame.csproj"
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "MonsterCardTradingGame >= 1.0.0",
+      "Models >= 1.0.0",
       "Npgsql >= 6.0.2"
     ]
   },
@@ -129,8 +126,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\MonsterCardTradingGame.csproj": {
-              "projectPath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\MonsterCardTradingGame.csproj"
+            "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\Models\\Models.csproj"
             }
           }
         }

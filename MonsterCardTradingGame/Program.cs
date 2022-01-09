@@ -1,33 +1,18 @@
 ﻿
-using MonsterCardTradingGame.Models;
+using DAL.DB;
+using MonsterCardTradingGame.Controller;
+using MonsterCardTradingGame.Server;
 
 namespace MonsterCardTradingGame {
     class Program {
         static void Main(string[] args) {
-            //MyServer server = new MyServer();
-            string name, password;
-            int coins = 20;
+            Database db = new Database("Host = localhost; Username = postgres; Password = KnautschgesichtmitDatenbank; Database = MCTG");
+            Console.WriteLine("Simple HTTP-Server!");
+            Console.CancelKeyPress += (sender, e) => Environment.Exit(0);
 
-            Console.WriteLine("Creating User, please enter name and password: ");
-            name = Console.ReadLine();
-            password = Console.ReadLine();
-            
-            User user1 = new User(name, Guid.NewGuid(), password, coins);
-            user1.BuyPackage(user1);
-            user1.CreateDeck();
+            var server = new HttpServer(8080, db);
 
-            Console.WriteLine("Creating User, please enter name and password: ");
-            name = Console.ReadLine();
-            password = Console.ReadLine();
-            User user2 = new User(name, Guid.NewGuid(), password, coins);
-            user2.BuyPackage(user2);
-            user2.CreateDeck();
-
-
-            Battle battle = new Battle(user1, user2);
-            battle.StartBattle();
-
-
+            server.Run();
 
         }
 

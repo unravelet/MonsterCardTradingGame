@@ -1,6 +1,6 @@
 ﻿using DAL.DB;
 using DAL.Repository;
-using MonsterCardTradingGame.Models;
+using Models;
 
 namespace DAL {
     class Program {

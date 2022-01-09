@@ -7,7 +7,7 @@ namespace Client {
         static void Main(string[] args) {
             Console.WriteLine("A simple Client!");
 
-            TcpClient clientSocket = new TcpClient("localhost", 8000);
+            TcpClient clientSocket = new TcpClient("localhost", 8080);
             var writer = new StreamWriter(clientSocket.GetStream());
             var reader = new StreamReader(clientSocket.GetStream());
 

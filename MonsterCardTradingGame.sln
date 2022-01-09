@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonsterCardTradingGame", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{1908485B-DC50-4EBA-8A77-BA0EAF71CA67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{BDEBE73C-AA05-422F-9E68-C6282F11EC19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{BDEBE73C-AA05-422F-9E68-C6282F11EC19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{28BEB8B6-08B4-4769-A7DC-BE5B97796F76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{BDEBE73C-AA05-422F-9E68-C6282F11EC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDEBE73C-AA05-422F-9E68-C6282F11EC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDEBE73C-AA05-422F-9E68-C6282F11EC19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28BEB8B6-08B4-4769-A7DC-BE5B97796F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28BEB8B6-08B4-4769-A7DC-BE5B97796F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28BEB8B6-08B4-4769-A7DC-BE5B97796F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28BEB8B6-08B4-4769-A7DC-BE5B97796F76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

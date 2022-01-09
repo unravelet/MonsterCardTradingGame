@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MonsterCardTradingGame.Server {
-    class ConnectionHandler {
+    public class ConnectionHandler {
 
     }
 }

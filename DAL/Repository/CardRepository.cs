@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MonsterCardTradingGame.Models;
-using DAL.DB;
+﻿using DAL.DB;
+using Models;
 using Npgsql;
 
 namespace DAL.Repository {
 
-    class CardRepository : IRepository<Card> {
+    public class CardRepository : IRepository<Card> {
 
         public Database _db;
 
@@ -62,7 +57,7 @@ namespace DAL.Repository {
             using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
 
                 if (reader.Read()) {
-                    return new Card(new Guid(reader.GetValue(0).ToString()),    //id
+                    return new Card(reader.GetValue(0).ToString(),                         //id
                         reader.GetValue(1).ToString(),                          //owner
                         reader.GetValue(2).ToString(),                          //name
                         Convert.ToInt32(reader.GetValue(3)),                    //damage
@@ -87,8 +82,8 @@ namespace DAL.Repository {
 
 
         //works
-        public List<Card> GetUserStack(string username) { 
-        
+        public List<Card> GetUserStack(string username) {
+
             List<Card> stack = new List<Card>();
 
             string sql = "SELECT * FROM cards WHERE owner=@o";
@@ -97,18 +92,18 @@ namespace DAL.Repository {
 
             using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
 
-                while (reader.Read()) { 
-                
-                    stack.Add(new Card(new Guid(reader.GetValue(0).ToString()),                                         //id
-                        reader.GetValue(1).ToString(),                                                                  //owner
-                        reader.GetValue(2).ToString(),                                                                  //name
-                        Convert.ToInt32(reader.GetValue(3)),                                                            //damage
-                        Convert.ToInt32(reader.GetValue(4)),                                                            //speed
-                        (Card.ElementalType)reader.GetValue(5),                                                         //element
-                        (Card.Monster)reader.GetValue(6),                                                               //monster
-                        bool.Parse(reader.GetValue(7).ToString()),                                                      //isspell
-                        reader.GetValue(8).ToString()                                                                   //description
-                        ));                        
+                while (reader.Read()) {
+
+                    stack.Add(new Card(reader.GetValue(0).ToString(),               //id
+                        reader.GetValue(1).ToString(),                              //owner
+                        reader.GetValue(2).ToString(),                              //name
+                        Convert.ToInt32(reader.GetValue(3)),                        //damage
+                        Convert.ToInt32(reader.GetValue(4)),                        //speed
+                        (Card.ElementalType)reader.GetValue(5),                     //element
+                        (Card.Monster)reader.GetValue(6),                           //monster
+                        bool.Parse(reader.GetValue(7).ToString()),                  //isspell
+                        reader.GetValue(8).ToString()                               //description
+                        ));
                 }
                 return stack;
 

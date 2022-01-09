@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "L8VkiuTdORykrlIjR8XMADktoBlVvG89OIYiKKh7RHe/2aFg7yg+dq9IuiE+uP1DD/tCgFpU5/9aCn/UQAefIg==",
+  "dgSpecHash": "Q5LpAyMjeiKJ0twFIN67mT64TbbKDKgnX0gVlkMhK4l3i2JjjUq+VmwOfnNZJss7hCPlzM29yjqLWEuHi7rvAw==",
   "success": true,
   "projectFilePath": "C:\\Users\\rebek\\source\\repos\\MonsterCardTradingGame\\MonsterCardTradingGame\\MonsterCardTradingGame.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\rebek\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\rebek\\.nuget\\packages\\npgsql\\6.0.2\\npgsql.6.0.2.nupkg.sha512",
     "C:\\Users\\rebek\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],

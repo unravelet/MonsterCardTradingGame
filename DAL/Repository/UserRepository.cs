@@ -1,23 +1,28 @@
-﻿using MonsterCardTradingGame.Models;
-using DAL.DB;
+﻿using DAL.DB;
+using Models;
 using Npgsql;
 
 
 namespace DAL.Repository {
-    class UserRepository : IRepository<User> {
+    public class UserRepository : IRepository<User> {
 
         public Database _db;
 
-        public UserRepository(Database db) { 
+        public UserRepository(Database db) {
             _db = db;
         }
 
         //works
         public bool Create(User data) {
+
+            if (UsernameExists(data.Username)){
+                Console.WriteLine("Username already exists");
+                return false;
+            }
             string sql = "INSERT INTO users (username, uid, password, coins) Values (@u,@id,@p,@c)";
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
             cmd.Parameters.AddWithValue("u", data.Username);
-            cmd.Parameters.AddWithValue("id", data.Uid.ToString());
+            cmd.Parameters.AddWithValue("id", data.Uid);
             cmd.Parameters.AddWithValue("p", data.Password);
             cmd.Parameters.AddWithValue("c", data.Coins);
 
@@ -50,15 +55,15 @@ namespace DAL.Repository {
 
         //works
         public List<User> ReadAll() {
-            
+
             List<User> list = new List<User>();
             string sql = "SELECT * FROM users";
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
 
             using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
-                while (reader.Read()) { 
+                while (reader.Read()) {
                     list.Add(new User(reader.GetValue(0).ToString(),    //username
-                        new Guid(reader.GetValue(1).ToString()),        //uid
+                        reader.GetValue(1).ToString(),                 //uid
                         reader.GetValue(2).ToString(),                  //password
                         Convert.ToInt32(reader.GetValue(3))             //coins
                         ));
@@ -69,7 +74,7 @@ namespace DAL.Repository {
 
         //works
         public bool Update(User data) {
-            
+
             string sql = "UPDATE users SET password = @p, coins = @c WHERE username = @u";
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
             cmd.Parameters.AddWithValue("p", data.Password);
@@ -95,7 +100,7 @@ namespace DAL.Repository {
 
                 if (reader.Read()) {
                     return new User(reader.GetValue(0).ToString(),      //username
-                        new Guid(reader.GetValue(1).ToString()),        //uid
+                        reader.GetValue(1).ToString(),                  //uid
                         reader.GetValue(2).ToString(),                  //password
                         Convert.ToInt32(reader.GetValue(3))             //coins
                         );
@@ -111,8 +116,7 @@ namespace DAL.Repository {
 
             using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
 
-                while(reader.Read()) {
-                    Console.WriteLine(reader.GetValue(0).ToString());
+                while (reader.Read()) {
                     if (username == reader.GetValue(0).ToString()) {
                         return true;
                     }
@@ -133,7 +137,7 @@ namespace DAL.Repository {
                 if (reader.Read()) {
                     return reader.GetValue(0).ToString();
                 }
-                
+
             }
             return null;
 
@@ -150,6 +154,29 @@ namespace DAL.Repository {
             else {
                 return false;
             }
+        }
+
+        public bool UserLogin(string username, string password) {
+            if (UsernameExists(username)) {
+                string sql = "SELECT password FROM users WHERE username = @u";
+                NpgsqlCommand cmd = new NpgsqlCommand(sql);
+                cmd.Parameters.AddWithValue("u", username);
+
+                using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
+
+                    if (reader.Read()) {
+                        if (password == reader.GetValue(0).ToString()) {
+                            
+                            return true;
+                        }
+                        else {
+                            return false;
+                        }
+                    } 
+                }
+            }
+            return false;
+
         }
     }
 }

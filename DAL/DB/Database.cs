@@ -23,7 +23,7 @@ namespace DAL.DB {
             if (conn.State == System.Data.ConnectionState.Open) {
                 return true;
             }
-            Console.WriteLine("opening connection");
+            Console.WriteLine("opening connection to database");
             conn.Open();
             
             if (conn.State == System.Data.ConnectionState.Open) {
