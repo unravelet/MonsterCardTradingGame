@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MonsterCardTradingGame;
 
-namespace UnitTests {
+namespace MCTGUnitTests {
     [TestClass]
     public class UnitTest1 {
         [TestMethod]

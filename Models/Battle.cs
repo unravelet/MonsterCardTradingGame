@@ -63,7 +63,7 @@ namespace Models {
                 PrintAndAddLog(_player2.Username + "'s cards in deck: " + _player2._deck.Count);
 
                 //wait for input
-                //Console.ReadLine();
+                Console.ReadLine();
 
                 _round++;
             }

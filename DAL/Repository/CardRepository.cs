@@ -14,7 +14,7 @@ namespace DAL.Repository {
 
         //works
         public bool Create(Card data) {
-            string sql = "INSERT INTO Cards (id, owner, name, damage, speed, element, monster, isSpell, description) Values (@id,@o,@n,@d,@s,@e,@m,@is,@de)";
+            string sql = "INSERT INTO cards (id, owner, name, damage, speed, element, monster, isSpell, description) Values (@id,@o,@n,@d,@s,@e,@m,@is,@de)";
 
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
             cmd.Parameters.AddWithValue("id", data.Id.ToString());
@@ -57,7 +57,7 @@ namespace DAL.Repository {
             using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
 
                 if (reader.Read()) {
-                    return new Card(reader.GetValue(0).ToString(),                         //id
+                    return new Card(reader.GetValue(0).ToString(),              //id
                         reader.GetValue(1).ToString(),                          //owner
                         reader.GetValue(2).ToString(),                          //name
                         Convert.ToInt32(reader.GetValue(3)),                    //damage
@@ -109,6 +109,30 @@ namespace DAL.Repository {
 
             }
 
+        }
+
+        public Card FindUsersCard(string username, string cardname) {
+            string sql = "SELECT * FROM cards WHERE owner = @o AND name = @n";
+            NpgsqlCommand cmd = new NpgsqlCommand(sql);
+            cmd.Parameters.AddWithValue("o", username);
+            cmd.Parameters.AddWithValue("n", cardname);
+
+            using (NpgsqlDataReader reader = _db.ExecuteQuery(cmd)) {
+
+                if (reader.Read()) {
+                    return new Card(reader.GetValue(0).ToString(),                  //id
+                        reader.GetValue(1).ToString(),                              //owner
+                        reader.GetValue(2).ToString(),                              //name
+                        Convert.ToInt32(reader.GetValue(3)),                        //damage
+                        Convert.ToInt32(reader.GetValue(4)),                        //speed
+                        (Card.ElementalType)reader.GetValue(5),                     //element
+                        (Card.Monster)reader.GetValue(6),                           //monster
+                        bool.Parse(reader.GetValue(7).ToString()),                  //isspell
+                        reader.GetValue(8).ToString()                               //description
+                        );
+                }
+                return null;
+            }
         }
     }
 }

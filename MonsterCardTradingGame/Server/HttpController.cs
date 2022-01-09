@@ -28,5 +28,12 @@ namespace MonsterCardTradingGame.Server {
             return r;
         }
 
+        public virtual HttpResponse Put(HttpRequest request) {
+            var r = new HttpResponse();
+            r.Status = HttpStatus.BadRequest;
+
+            return r;
+        }
+
     }
 }

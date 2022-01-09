@@ -60,9 +60,9 @@ namespace MonsterCardTradingGame.Server {
                         break;
 
                 }
-            } 
+            }
 
-            
+            writer.Flush();
             writer.Close();
         }
 
