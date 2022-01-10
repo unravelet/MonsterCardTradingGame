@@ -89,7 +89,7 @@ namespace Models {
 
         public void PlayerWon(User winner) {
             PrintAndAddLog("\n" + winner.Username + " won!");
-            winner.Coins = 3;
+            winner.AddCoins(3);
         }
 
         public Card Draw(User player, int maxNum) {

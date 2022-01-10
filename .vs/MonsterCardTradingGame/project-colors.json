@@ -25,7 +25,17 @@
       "ProjectGuid": "28beb8b6-08b4-4769-a7dc-be5b97796f76",
       "DisplayName": "Models",
       "ColorIndex": 3
+    },
+    "554520fc-6317-4f4e-94c2-0c40a0bcd368": {
+      "ProjectGuid": "554520fc-6317-4f4e-94c2-0c40a0bcd368",
+      "DisplayName": "UnitTests",
+      "ColorIndex": 4
+    },
+    "a6a2e944-e290-4dd4-b091-1f306313bda9": {
+      "ProjectGuid": "a6a2e944-e290-4dd4-b091-1f306313bda9",
+      "DisplayName": "MCTGUnitTests",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 6
 }

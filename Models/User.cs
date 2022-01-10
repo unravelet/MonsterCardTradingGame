@@ -17,25 +17,11 @@ namespace Models {
         public List<Card> _deck;
 
         public string Uid { get { return _uid; } }
-        public string Username {
-            get { return _username; }
-
-        }
+        public string Username {get { return _username; } }
         public string Password { get { return _password; } }
-        public int Coins {
-            get { return _coins; }
-            set {
-                if (value < 0) {
-                    _coins -= value;
-                    if (_coins < 0) {
-                        _coins = 0;
-                    }
-                }
-                else if (value > 0) {
-                    _coins += value;
-                }
-            }
-        }
+        public int Coins {get { return _coins; } }
+        public List<Card> Stack { get { return _stack; } }
+        public List<Card> Deck { get { return _deck; } }
 
         public User(string username, string uid, string password, int coins) {
             _uid = uid;
@@ -43,6 +29,7 @@ namespace Models {
             _password = password;
             _coins = coins;
             _stack = new List<Card>();
+            _deck = new List<Card>();
         }
 
         public void BuyPackage(User user) {
@@ -50,9 +37,9 @@ namespace Models {
             //int packNum = Convert.ToInt32(Console.ReadLine());
 
             if (_coins >= 5) {
-                    _coins -= 5;
-                    Package package = new Package(user);
-                    _stack.AddRange(package._package);
+                AddCoins(-5);
+                Package package = new Package(user);
+                _stack.AddRange(package._package);
             }
             else {
                 Console.WriteLine("You dont have enough coins");
@@ -99,6 +86,13 @@ namespace Models {
 
         public void AddCardToDeck(Card card) {
             _deck.Add(card);
+        }
+
+        public void AddCoins(int amount) {
+            _coins += amount;
+            if(_coins + amount < 0) {
+                _coins = 0;
+            }
         }
 
 

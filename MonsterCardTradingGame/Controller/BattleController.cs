@@ -28,12 +28,6 @@ namespace MonsterCardTradingGame.Controller {
             HttpResponse response = new HttpResponse();
 
             if (_userRepo.UserLogin(players[0].Username, players[0].Password) && _userRepo.UserLogin(players[1].Username, players[1].Password)) {
-                /*login users
-                 get users from db
-                get deck
-                battle
-                update users
-                */
 
                 for (int i = 0; i < players.Count; i++) {
                     players[i] = _userRepo.FindUser(players[i].Username);
@@ -44,6 +38,9 @@ namespace MonsterCardTradingGame.Controller {
 
                 _battle = new Battle(_player1, _player2);
                 _battle.StartBattle();
+
+                _userRepo.Update(_player1);
+                _userRepo.Update(_player2);
 
                 response.Status = (HttpStatus)200;
                 return response;
