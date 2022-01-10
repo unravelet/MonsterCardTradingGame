@@ -29,7 +29,6 @@ namespace Models {
 
         public string GetTimeStamp() {
 
-
             return DateTime.Now.ToString("yyyyMMddHHmmssfff");
         }
 

@@ -294,7 +294,9 @@ namespace Models {
                 "creation, Snow.";
         }
         public void LightDescription() {
-            _description = " ";
+            _description = "The god of Light is a very peaceful god, who wanted nothing but peace for everything and everyone." +
+                "Until one day, when Darkness the world almost devoured, the god of Light had to use their power to defend the world from it." +
+                "Since than, the god of Light fights against the Darkness to bring back peace.";
         }
         public void DarkDescription() {
             _description = "Darkness was the most powerful element, not even the god of Darkness themselves can fully control it. It consumes everything " +

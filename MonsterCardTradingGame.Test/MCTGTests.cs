@@ -125,7 +125,7 @@ namespace MonsterCardTradingGame.Test {
             Battle battle = new Battle(user1, user2);
 
             //act
-            battle.PlayerWon(user1);
+            battle.PlayerWon(user1, user2);
 
             //assert
             Assert.AreEqual(13, user1.Coins);
@@ -301,7 +301,46 @@ namespace MonsterCardTradingGame.Test {
             Assert.IsTrue(battle.AttackerWins(user2, card2, card1));
         }
 
-        
+        [Test]
+        public void AddScoreTest() {
+            //arrange
+            User user1 = new User("username", "1", "password", 10);
+
+
+            //act
+            user1.AddScore(10);
+
+            //assert
+            Assert.AreEqual(10, user1.Score);
+        }
+
+        [Test]
+        public void AddNegativeScoreTest() {
+            //arrange
+            User user1 = new User("username", "1", "password", 10);
+
+            //act
+            user1.AddScore(-10);
+
+            //assert
+            Assert.AreEqual(0, user1.Score);
+        }
+
+        [Test]
+        public void CalWinLoseratioTest() {
+            //arrange
+            User user1 = new User("username", "1", "password", 10);
+            user1.Wins = 1;
+            user1.Losses = 2;
+
+            //act
+            user1.CalWinLoseRatio();
+
+            //assert
+            Assert.AreEqual(0.5, user1.WinLoseRatio);
+        }
+
+
 
 
     }

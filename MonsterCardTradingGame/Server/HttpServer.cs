@@ -19,6 +19,7 @@ namespace MonsterCardTradingGame.Server {
         public UserRepository _userRepo;
         public CardRepository _cardRepo;
         public DeckRepository _deckRepo;
+        public ScoreRepository _scoreRepo;
 
         public HttpServer(int port, Database db) {
             _port = port;
@@ -26,6 +27,7 @@ namespace MonsterCardTradingGame.Server {
             _userRepo = new UserRepository(db);
             _cardRepo = new CardRepository(db);
             _deckRepo = new DeckRepository(db);
+            _scoreRepo = new ScoreRepository(db);
             Controllers = new Dictionary<string, HttpController>();
             InitController();
 
@@ -54,7 +56,9 @@ namespace MonsterCardTradingGame.Server {
             RegisterController("/cards", new CardController(this._userRepo, this._cardRepo));
             RegisterController("/deck", new DeckController(this._userRepo, this._cardRepo, this._deckRepo));
             RegisterController("/package", new PackageController(this._userRepo, this._cardRepo));
-            RegisterController("/battle", new BattleController(this._userRepo, this._cardRepo, this._deckRepo));
+            RegisterController("/battle", new BattleController(this._userRepo, this._cardRepo, this._deckRepo, this._scoreRepo));
+            RegisterController("/score", new ScoreController(this._userRepo, this._scoreRepo));
+            RegisterController("/stats", new StatsController(this._userRepo, this._scoreRepo));
 
         }
     }

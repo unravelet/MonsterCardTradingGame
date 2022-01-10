@@ -14,6 +14,7 @@ namespace Models {
         Card _player1Card;
         Card _player2Card;
         BattleLog log;
+       
 
 
         public Battle(User user1, User user2) {
@@ -63,7 +64,7 @@ namespace Models {
                 PrintAndAddLog(_player2.Username + "'s cards in deck: " + _player2._deck.Count);
 
                 //wait for input
-                Console.ReadLine();
+                //Console.ReadLine();
 
                 _round++;
             }
@@ -74,11 +75,11 @@ namespace Models {
 
         public bool IsNotOver() {
             if (_player1._deck.Count == 0) {
-                PlayerWon(_player2);
+                PlayerWon(_player2, _player1);
                 return false;
             }
             else if (_player2._deck.Count == 0) {
-                PlayerWon(_player1);
+                PlayerWon(_player1, _player2);
                 return false;
             }
             else {
@@ -87,9 +88,17 @@ namespace Models {
         }
 
 
-        public void PlayerWon(User winner) {
+        public void PlayerWon(User winner, User loser) {
             PrintAndAddLog("\n" + winner.Username + " won!");
+            
             winner.AddCoins(3);
+            winner.AddScore(5);
+            winner.AddWin(1);
+            loser.AddScore(-3);
+            loser.AddLoss(1);
+            winner.CalWinLoseRatio();
+            loser.CalWinLoseRatio();
+            
         }
 
         public Card Draw(User player, int maxNum) {

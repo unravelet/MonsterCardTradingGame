@@ -22,6 +22,10 @@ namespace Models {
         public int Coins {get { return _coins; } }
         public List<Card> Stack { get { return _stack; } }
         public List<Card> Deck { get { return _deck; } }
+        public int Score { get; set; }
+        public int Wins { get; set; }
+        public int Losses { get; set; }
+        public double WinLoseRatio { get; set; }
 
         public User(string username, string uid, string password, int coins) {
             _uid = uid;
@@ -30,6 +34,10 @@ namespace Models {
             _coins = coins;
             _stack = new List<Card>();
             _deck = new List<Card>();
+            Score = 0;
+            Wins = 0;
+            Losses = 0;
+            WinLoseRatio = 1;
         }
 
         public void BuyPackage(User user) {
@@ -44,14 +52,6 @@ namespace Models {
             else {
                 Console.WriteLine("You dont have enough coins");
             }
-
-            //debugging
-            //Console.WriteLine("\nall of your cards: ");
-
-            //for (int i = 0; i < _stack.Count; i++) {
-            //    Console.WriteLine(_stack[i].Name);
-            //}
-            //Console.WriteLine("\nYou have " + _coins + " coins left.");
 
         }
 
@@ -93,6 +93,59 @@ namespace Models {
             if(_coins + amount < 0) {
                 _coins = 0;
             }
+        }
+
+        public void SetScoreData(int score, int wins, int losses, double winloseratio) { 
+            Score = score;
+            Wins = wins;
+            Losses = losses;
+            WinLoseRatio = winloseratio;
+        }
+
+        public void AddScore(int value) {
+            Score += value;
+
+            if (Score < 0) {
+                Score = 0;
+            }
+        }
+
+        public void AddWin(int value) {
+            Wins += value;
+
+            if (Score < 0) {
+                Wins = 0;
+            }
+        }
+
+        public void AddLoss(int value) {
+            Losses += value;
+
+            if (Losses < 0) {
+                Losses = 0;
+            }
+        }
+
+        public void CalWinLoseRatio() {
+            if (Losses != 0) {
+                WinLoseRatio = (double)Wins / (double)Losses;
+            }
+            else {
+                WinLoseRatio = (double)Wins / 1;
+            }
+            
+        }
+
+        public string PrintStats() {
+            string stats = Username +
+                ":\n Score: " + Score +
+                "\nWins: " + Wins +
+                "\nLosses: " + Losses +
+                "\nWin-Lose-Ratio: " + WinLoseRatio;
+
+            Console.WriteLine(stats);
+            return stats;
+
         }
 
 
