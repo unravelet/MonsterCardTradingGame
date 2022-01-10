@@ -35,7 +35,17 @@
       "ProjectGuid": "a6a2e944-e290-4dd4-b091-1f306313bda9",
       "DisplayName": "MCTGUnitTests",
       "ColorIndex": 5
+    },
+    "f1730c54-7a3c-4630-9ffb-e2e47cef7011": {
+      "ProjectGuid": "f1730c54-7a3c-4630-9ffb-e2e47cef7011",
+      "DisplayName": "MonsterCardTradingGame.Test",
+      "ColorIndex": 6
+    },
+    "5675624a-1d15-4127-873b-e42ca820f2dc": {
+      "ProjectGuid": "5675624a-1d15-4127-873b-e42ca820f2dc",
+      "DisplayName": "MonsterCardTradingGame.Test",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 6
+  "NextColorIndex": 8
 }
