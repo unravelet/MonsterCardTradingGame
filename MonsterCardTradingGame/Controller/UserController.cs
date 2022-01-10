@@ -14,20 +14,15 @@ namespace MonsterCardTradingGame.Controller {
             _userRepo = userRepo;
         }
 
-        public override HttpResponse Get(HttpRequest request) {
-            var response = new HttpResponse();
 
-
-            return response;
-        }
 
         public override HttpResponse Post(HttpRequest request) {
             User user = JsonConvert.DeserializeObject<User>(request.Body);
             HttpResponse response = new HttpResponse();
 
             if (_userRepo.Create(user)) {
-                response.Status = (HttpStatus)200;
-                //Console.WriteLine(response.Status);
+                response.Status = 200;
+                response.Body = "User created";
                 return response;
             }
 

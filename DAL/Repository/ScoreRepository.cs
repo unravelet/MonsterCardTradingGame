@@ -1,11 +1,6 @@
 ﻿using DAL.DB;
 using Models;
 using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Repository {
     public class ScoreRepository : IRepository<User> {
@@ -16,7 +11,7 @@ namespace DAL.Repository {
             _db = db;
         }
 
-        
+
         public bool Create(User data) {
             if (!UsernameExists(data.Username)) {
                 string sql = "INSERT INTO scoreboard (username, score, wins, losses, winloseratio) Values (@u,@s,@w,@l,@wl)";
@@ -87,7 +82,7 @@ namespace DAL.Repository {
         }
 
         public ScoreBoard GetScoreData(string username) {
-            
+
             string sql = "SELECT * FROM scoreboard WHERE username = @u";
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
             cmd.Parameters.AddWithValue("u", username);
@@ -124,6 +119,6 @@ namespace DAL.Repository {
             }
         }
 
-        
+
     }
 }

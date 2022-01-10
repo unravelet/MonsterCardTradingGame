@@ -2,11 +2,6 @@
 using Models;
 using MonsterCardTradingGame.Server;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonsterCardTradingGame.Controller {
     //CONFIGURE DECK
@@ -25,26 +20,18 @@ namespace MonsterCardTradingGame.Controller {
         }
 
         public override HttpResponse Put(HttpRequest request) {
-            cards = new List<Card>();
-            cards = JsonConvert.DeserializeObject<List<Card>>(request.Body);
-            HttpResponse response = new HttpResponse();
-
-            
             deck = new List<Card>();
-            foreach (Card card in cards) {
-                deck.Add(new Card(card.Id, card.Owner, card.Name, card.Damage, card.Speed, card.ElementType, card.MonsterType, card.IsSpell, card.Description));
-            }
+            deck = JsonConvert.DeserializeObject<List<Card>>(request.Body);
+            HttpResponse response = new HttpResponse();
 
             for (int i = 0; i < deck.Count; i++) {
                 deck[i] = _cardRepo.FindUsersCard(deck[i].Owner, deck[i].Name);
                 _deckRepo.Create(deck[i]);
                 Console.WriteLine(deck[i].Name);
+                response.Body += deck[i].Name + "\n";
             }
 
-            if (_deckRepo.CheckFullDeck(deck[0].Owner)) {
-                response.Status = (HttpStatus)200;
-                return response;
-            }
+            response.Status = 200;
 
             return response;
         }
@@ -53,20 +40,22 @@ namespace MonsterCardTradingGame.Controller {
             User user = JsonConvert.DeserializeObject<User>(request.Body);
             HttpResponse response = new HttpResponse();
 
-            if (_userRepo.UserLogin(user.Username, user.Password)) { 
+            if (_userRepo.UserLogin(user.Username, user.Password)) {
                 user = _userRepo.FindUser(user.Username);
                 if (_deckRepo.CheckFullDeck(user.Username)) {
                     user._deck = _deckRepo.GetUserDeck(user.Username);
                     Console.WriteLine(user.Username + "'s deck: ");
 
-                    for(int i = 0; i < user._deck.Count; i++) {
+                    for (int i = 0; i < user._deck.Count; i++) {
                         Console.WriteLine(user._deck[i].Name);
+                        response.Body += user._deck[i].Name + "\n";
                     }
-                    
-                    response.Status = (HttpStatus)200;
+
+
+                    response.Status = 200;
                     return response;
                 }
-                
+
             }
 
             return response;

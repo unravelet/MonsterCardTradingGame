@@ -1,6 +1,5 @@
 ﻿
 using DAL.DB;
-using MonsterCardTradingGame.Controller;
 using MonsterCardTradingGame.Server;
 
 namespace MonsterCardTradingGame {

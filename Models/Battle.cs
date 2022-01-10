@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models {
+﻿namespace Models {
     public class Battle {
         Random random = new Random();
         int _round;
@@ -14,7 +8,8 @@ namespace Models {
         Card _player1Card;
         Card _player2Card;
         BattleLog log;
-       
+        string _result;
+
 
 
         public Battle(User user1, User user2) {
@@ -31,7 +26,7 @@ namespace Models {
             _player2._booster = true;
         }
 
-        public void StartBattle() {
+        public string StartBattle() {
 
             while (_round <= 100 && IsNotOver()) {
                 PrintAndAddLog("-------------------");
@@ -42,8 +37,6 @@ namespace Models {
                 _player2Card = Draw(_player2, _player2._deck.Count);
 
                 PrintAndAddLog(_player1.Username + "'s " + _player1Card.Name + " VS " + _player2.Username + "'s " + _player2Card.Name + "\n");
-                //Console.WriteLine(_player1Card.Name + " is " + _player1Card.ElementType + _player1Card.MonsterType + _player1Card.IsSpell);
-                //Console.WriteLine(_player2Card.Name + " is " + _player2Card.ElementType + _player2Card.MonsterType + _player2Card.IsSpell);
 
                 if (_player1Card.Speed > _player2Card.Speed) {
                     Fight(_player1, _player1Card, _player2, _player2Card);
@@ -70,7 +63,10 @@ namespace Models {
             }
             if (_round > 100) {
                 PrintAndAddLog("DRAW");
+                _result = "battle ended in a draw";
+                return _result;
             }
+            return _result;
         }
 
         public bool IsNotOver() {
@@ -90,7 +86,7 @@ namespace Models {
 
         public void PlayerWon(User winner, User loser) {
             PrintAndAddLog("\n" + winner.Username + " won!");
-            
+
             winner.AddCoins(3);
             winner.AddScore(5);
             winner.AddWin(1);
@@ -98,7 +94,7 @@ namespace Models {
             loser.AddLoss(1);
             winner.CalWinLoseRatio();
             loser.CalWinLoseRatio();
-            
+            _result = winner.Username + " won the battle!";
         }
 
         public Card Draw(User player, int maxNum) {
@@ -182,23 +178,12 @@ namespace Models {
 
         public bool Booster(User player, Card playerCard) {
             if (player._booster) {
-                if (player._deck.Count <= 2) {
-                    PrintAndAddLog(player.Username + ", do you want to use your Card booster? (Y/N)");
-                    string input = "";
-                    while (input != "Y" && input != "N") {
-                        input = Console.ReadLine();
-                        PrintAndAddLog(input);
-                    }
-                    if (input == "Y") {
-                        player._booster = false;
-                        return true;
-                    }
-                    else if (input == "N") {
-                        return false;
-                    }
-                    else {
-                        return false;
-                    }
+                if (player._deck.Count == 1) {
+                    //PrintAndAddLog(player.Username + ", do you want to use your Card booster? (Y/N)");
+                    PrintAndAddLog(player.Username + " used a booster");
+                    player._booster = false;
+                    return true;
+
                 }
                 else {
                     return false;

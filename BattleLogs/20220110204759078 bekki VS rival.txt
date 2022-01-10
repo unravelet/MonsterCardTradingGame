@@ -1,0 +1,225 @@
+
+bekki VS rival
+
+Player 1: bekki
+Player 2: rival
+-------------------
+Round: 1
+-------------------
+bekki's LightGoblin(30|3) VS rival's NormalSpell(60|2)
+
+LightGoblin(30|3) attacks NormalSpell(60|2)
+It's not effective!
+15 VS 120
+NormalSpell(60|2) attacks LightGoblin(30|3)
+It's very effective!
+120 VS 15
+
+rival's NormalSpell(60|2) wins!
+
+bekki's cards in deck: 3
+rival's cards in deck: 5
+-------------------
+Round: 2
+-------------------
+bekki's IceSpell(10|10) VS rival's WaterSpell(20|10)
+
+WaterSpell(20|10) attacks IceSpell(10|10)
+It's not effective!
+10 VS 20
+IceSpell(10|10) attacks WaterSpell(20|10)
+It's very effective!
+20 VS 10
+
+bekki's IceSpell(10|10) wins!
+
+bekki's cards in deck: 4
+rival's cards in deck: 4
+-------------------
+Round: 3
+-------------------
+bekki's IceSpell(10|10) VS rival's WaterWizard(20|2)
+
+IceSpell(10|10) attacks WaterWizard(20|2)
+It's very effective!
+20 VS 10
+
+bekki's IceSpell(10|10) wins!
+
+bekki's cards in deck: 5
+rival's cards in deck: 3
+-------------------
+Round: 4
+-------------------
+bekki's IceSpell(10|10) VS rival's LightGoblin(30|3)
+
+IceSpell(10|10) attacks LightGoblin(30|3)
+It's not effective!
+5 VS 60
+LightGoblin(30|3) attacks IceSpell(10|10)
+It's very effective!
+60 VS 5
+
+rival's LightGoblin(30|3) wins!
+
+bekki's cards in deck: 4
+rival's cards in deck: 4
+-------------------
+Round: 5
+-------------------
+bekki's FireKraken(30|8) VS rival's LightGoblin(30|3)
+
+FireKraken(30|8) attacks LightGoblin(30|3)
+30 VS 30
+LightGoblin(30|3) attacks FireKraken(30|8)
+30 VS 30
+
+draw
+bekki's cards in deck: 4
+rival's cards in deck: 4
+-------------------
+Round: 6
+-------------------
+bekki's GroundKnight(80|1) VS rival's NormalSpell(60|2)
+
+NormalSpell(60|2) attacks GroundKnight(80|1)
+60 VS 80
+GroundKnight(80|1) attacks NormalSpell(60|2)
+80 VS 60
+
+bekki's GroundKnight(80|1) wins!
+
+bekki's cards in deck: 5
+rival's cards in deck: 3
+-------------------
+Round: 7
+-------------------
+bekki's FireKraken(30|8) VS rival's LightGoblin(30|3)
+
+FireKraken(30|8) attacks LightGoblin(30|3)
+30 VS 30
+LightGoblin(30|3) attacks FireKraken(30|8)
+30 VS 30
+
+draw
+bekki's cards in deck: 5
+rival's cards in deck: 3
+-------------------
+Round: 8
+-------------------
+bekki's WaterWizard(20|2) VS rival's GroundSpell(20|6)
+
+GroundSpell(20|6) attacks WaterWizard(20|2)
+It's not effective!
+10 VS 40
+WaterWizard(20|2) attacks GroundSpell(20|6)
+It's very effective!
+40 VS 10
+
+bekki's WaterWizard(20|2) wins!
+
+bekki's cards in deck: 6
+rival's cards in deck: 2
+-------------------
+Round: 9
+-------------------
+bekki's WaterSpell(20|10) VS rival's IceSpell(10|10)
+
+IceSpell(10|10) attacks WaterSpell(20|10)
+It's very effective!
+20 VS 10
+
+rival's IceSpell(10|10) wins!
+
+bekki's cards in deck: 5
+rival's cards in deck: 3
+-------------------
+Round: 10
+-------------------
+bekki's GroundSpell(20|6) VS rival's WaterSpell(20|10)
+
+WaterSpell(20|10) attacks GroundSpell(20|6)
+It's very effective!
+40 VS 10
+
+rival's WaterSpell(20|10) wins!
+
+bekki's cards in deck: 4
+rival's cards in deck: 4
+-------------------
+Round: 11
+-------------------
+bekki's FireKraken(30|8) VS rival's LightGoblin(30|3)
+
+FireKraken(30|8) attacks LightGoblin(30|3)
+30 VS 30
+LightGoblin(30|3) attacks FireKraken(30|8)
+30 VS 30
+
+draw
+bekki's cards in deck: 4
+rival's cards in deck: 4
+-------------------
+Round: 12
+-------------------
+bekki's NormalSpell(60|2) VS rival's LightGoblin(30|3)
+
+LightGoblin(30|3) attacks NormalSpell(60|2)
+It's not effective!
+15 VS 120
+NormalSpell(60|2) attacks LightGoblin(30|3)
+It's very effective!
+120 VS 15
+
+bekki's NormalSpell(60|2) wins!
+
+bekki's cards in deck: 5
+rival's cards in deck: 3
+-------------------
+Round: 13
+-------------------
+bekki's GroundKnight(80|1) VS rival's IceSpell(10|10)
+
+IceSpell(10|10) attacks GroundKnight(80|1)
+It's very effective!
+20 VS 40
+GroundKnight(80|1) attacks IceSpell(10|10)
+It's not effective!
+40 VS 20
+
+bekki's GroundKnight(80|1) wins!
+
+bekki's cards in deck: 6
+rival's cards in deck: 2
+-------------------
+Round: 14
+-------------------
+bekki's NormalSpell(60|2) VS rival's WaterSpell(20|10)
+
+WaterSpell(20|10) attacks NormalSpell(60|2)
+It's not effective!
+10 VS 120
+NormalSpell(60|2) attacks WaterSpell(20|10)
+It's very effective!
+120 VS 10
+
+bekki's NormalSpell(60|2) wins!
+
+bekki's cards in deck: 7
+rival's cards in deck: 1
+-------------------
+Round: 15
+-------------------
+bekki's NormalSpell(60|2) VS rival's GroundSpell(20|6)
+
+GroundSpell(20|6) attacks NormalSpell(60|2)
+24 VS 60
+NormalSpell(60|2) attacks GroundSpell(20|6)
+60 VS 20
+
+bekki's NormalSpell(60|2) wins!
+
+bekki's cards in deck: 8
+rival's cards in deck: 0
+
+bekki won!

@@ -15,7 +15,7 @@ namespace DAL.Repository {
         //works
         public bool Create(User data) {
 
-            if (UsernameExists(data.Username)){
+            if (UsernameExists(data.Username)) {
                 Console.WriteLine("Username already exists");
                 return false;
             }
@@ -40,7 +40,7 @@ namespace DAL.Repository {
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
             cmd.Parameters.AddWithValue("u", name);
 
-            if (_db.ExecuteNonQuery(cmd) && DeleteUsersCards(name)) {
+            if (_db.ExecuteNonQuery(cmd)) {
                 return true;
             }
             else {
@@ -165,13 +165,13 @@ namespace DAL.Repository {
 
                     if (reader.Read()) {
                         if (password == reader.GetValue(0).ToString()) {
-                            
+
                             return true;
                         }
                         else {
                             return false;
                         }
-                    } 
+                    }
                 }
             }
             return false;

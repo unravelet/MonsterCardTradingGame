@@ -1,0 +1,68 @@
+
+bekki VS rival
+
+Player 1: bekki
+Player 2: rival
+-------------------
+Round: 1
+-------------------
+bekki's NormalDragon(20|7) VS rival's FireSpell(20|5)
+
+NormalDragon(20|7) attacks FireSpell(20|5)
+It's not effective!
+10 VS 40
+FireSpell(20|5) attacks NormalDragon(20|7)
+It's very effective!
+40 VS 10
+
+rival's FireSpell(20|5) wins!
+
+bekki's cards in deck: 3
+rival's cards in deck: 5
+-------------------
+Round: 2
+-------------------
+bekki's IceDragon(10|6) VS rival's WaterKnight(50|1)
+
+IceDragon(10|6) attacks WaterKnight(50|1)
+10 VS 50
+WaterKnight(50|1) attacks IceDragon(10|6)
+50 VS 10
+
+rival's WaterKnight(50|1) wins!
+
+bekki's cards in deck: 2
+rival's cards in deck: 6
+-------------------
+Round: 3
+-------------------
+bekki's LightSpell(40|5) VS rival's NormalDragon(20|7)
+
+NormalDragon(20|7) attacks LightSpell(40|5)
+It's very effective!
+40 VS 20
+
+rival's NormalDragon(20|7) wins!
+
+bekki's cards in deck: 1
+rival's cards in deck: 7
+-------------------
+Round: 4
+-------------------
+bekki's FireSpell(30|10) VS rival's WaterKnight(50|1)
+
+FireSpell(30|10) attacks WaterKnight(50|1)
+It's not effective!
+bekki, do you want to use your Card booster? (Y/N)
+Y
+19.5 VS 100
+WaterKnight(50|1) attacks FireSpell(30|10)
+It's very effective!
+100 VS 15
+
+rival's WaterKnight(50|1) wins!
+
+bekki's cards in deck: 0
+rival's cards in deck: 8
+
+rival won!

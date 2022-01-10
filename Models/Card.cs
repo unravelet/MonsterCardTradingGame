@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models {
+﻿namespace Models {
     public class Card {
 
         Random random = new Random();
@@ -71,22 +65,6 @@ namespace Models {
             _description = description;
 
         }
-
-
-        //public Card GetCard(string owner) {
-
-        //    _roll = random.Next(0, 2);
-
-        //    if (_roll == 0) {
-        //        SpellCard spell = new SpellCard(Guid.NewGuid(), owner);
-        //        return spell;
-        //    }
-        //    else /*if (_roll == 1)*/ {
-        //        MonsterCard monster = new MonsterCard(Guid.NewGuid(), owner);
-        //        return monster;
-        //    }
-
-        //}
 
 
 

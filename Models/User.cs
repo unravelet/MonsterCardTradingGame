@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models {
+﻿namespace Models {
     public class User {
 
         string _uid;
@@ -17,9 +11,9 @@ namespace Models {
         public List<Card> _deck;
 
         public string Uid { get { return _uid; } }
-        public string Username {get { return _username; } }
+        public string Username { get { return _username; } }
         public string Password { get { return _password; } }
-        public int Coins {get { return _coins; } }
+        public int Coins { get { return _coins; } }
         public List<Card> Stack { get { return _stack; } }
         public List<Card> Deck { get { return _deck; } }
         public int Score { get; set; }
@@ -90,12 +84,12 @@ namespace Models {
 
         public void AddCoins(int amount) {
             _coins += amount;
-            if(_coins + amount < 0) {
+            if (_coins + amount < 0) {
                 _coins = 0;
             }
         }
 
-        public void SetScoreData(int score, int wins, int losses, double winloseratio) { 
+        public void SetScoreData(int score, int wins, int losses, double winloseratio) {
             Score = score;
             Wins = wins;
             Losses = losses;
@@ -133,20 +127,9 @@ namespace Models {
             else {
                 WinLoseRatio = (double)Wins / 1;
             }
-            
-        }
-
-        public string PrintStats() {
-            string stats = Username +
-                ":\n Score: " + Score +
-                "\nWins: " + Wins +
-                "\nLosses: " + Losses +
-                "\nWin-Lose-Ratio: " + WinLoseRatio;
-
-            Console.WriteLine(stats);
-            return stats;
 
         }
+
 
 
     }

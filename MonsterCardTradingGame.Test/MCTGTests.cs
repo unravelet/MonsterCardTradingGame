@@ -1,12 +1,9 @@
-using NUnit.Framework;
-using MonsterCardTradingGame;
 using Models;
-using DAL;
-using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace MonsterCardTradingGame.Test {
     public class MCTGTests {
-        
+
         [Test]
         public void IsEffectiveTest() {
             //arrange
@@ -178,7 +175,7 @@ namespace MonsterCardTradingGame.Test {
 
             //act
             user1.AddCardToDeck(card1);
-            
+
             //assert
             Assert.AreSame(card1, user1.Deck[0]);
         }
@@ -216,10 +213,10 @@ namespace MonsterCardTradingGame.Test {
             //arrange
             User user1 = new User("username", "1", "password", 5);
             User user2 = new User("username", "1", "password", 15);
-            
+
             //act
             Battle battle = new Battle(user1, user2);
-            
+
 
             //assert
             Assert.Greater(battle.BoosterDmg(20), 20);
@@ -233,7 +230,7 @@ namespace MonsterCardTradingGame.Test {
             User user2 = new User("username", "1", "password", 15);
             Card card1 = new Card("1", "owner", "FireKnight(80|10)", 80, 10, Card.ElementalType.Fire, Card.Monster.Knight, false, "");
             Card card2 = new Card("3", "owner", "WaterSpell(50|20)", 50, 20, Card.ElementalType.Water, Card.Monster.Spell, true, "");
-            
+
 
             //act
             user1.AddCardToDeck(card1);

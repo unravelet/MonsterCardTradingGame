@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.IO;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using MonsterCardTradingGame.Controller;
+﻿using System.Net.Sockets;
 
 namespace MonsterCardTradingGame.Server {
     public class HttpProcessor {
@@ -35,25 +27,38 @@ namespace MonsterCardTradingGame.Server {
             var request = new HttpRequest();
             Console.WriteLine("handling request..");
             request = HttpReader.ReadRequest(reader);
-            
+
 
             HttpController httpController = new();
-            
-            if(httpServer.Controllers.TryGetValue(request.Path, out httpController) == true) {//out writes in httpController
+
+            if (httpServer.Controllers.TryGetValue(request.Path, out httpController) == true) {//out writes in httpController
                 switch (request.Method.ToLower()) {
                     case "get":
                         HttpResponse response = httpController.Get(request);
                         Console.WriteLine(response.Status);
                         writer.WriteLine($"{response.version} {response.Status}");
+                        writer.WriteLine();
+                        writer.WriteLine(response.Body);
                         break;
                     case "post":
                         response = httpController.Post(request);
                         Console.WriteLine(response.Status);
                         writer.WriteLine($"{response.version} {response.Status}");
+                        writer.WriteLine();
+                        writer.WriteLine(response.Body);
                         break;
-                    case"delete":
+                    case "put":
+                        response = httpController.Put(request);
+                        Console.WriteLine(response.Status);
+                        writer.WriteLine($"{response.version} {response.Status}");
+                        writer.WriteLine();
+                        writer.WriteLine(response.Body);
+                        break;
+                    case "delete":
                         response = httpController.Delete(request);
                         writer.WriteLine($"{response.version} {response.Status}");
+                        writer.WriteLine();
+                        writer.WriteLine(response.Body);
                         break;
                     default:
                         Console.WriteLine("couldnt read method");

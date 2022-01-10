@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models {
+﻿namespace Models {
     public class BattleLog {
 
         string _path;
         string _timeStamp;
         public BattleLog(string filename) {
             _timeStamp = GetTimeStamp();
-            _path = "D:/" + _timeStamp + " " + filename + ".txt";
+            //_path = "D:/" + _timeStamp + " " + filename + ".txt";
+            _path = "C:/Users/rebek/source/repos/MonsterCardTradingGame/BattleLogs/" + _timeStamp + " " + filename + ".txt";
 
         }
 

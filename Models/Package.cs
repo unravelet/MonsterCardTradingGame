@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models {
+﻿namespace Models {
     public class Package {
 
         Random random = new Random();
@@ -222,16 +216,21 @@ namespace Models {
                 "anything and will run away instead of fight them";
         }
         public void DragonDescription() {
-            _description = "";
+            _description = "These very proud ancient creatures do not fear anything or anyone. They actually want the woship of all beings." +
+                "That is also the reason why some of them choose to live with FireElves. They love the worship and dependency of the Elves.";
         }
         public void WizardDescription() {
-            _description = "";
+            _description = "Wizards are ancient creatures, some even say, they have existed since the dawn of time." +
+                "Wizards created all kinds of creatures and magic with ease and can even mind control non-intellegent creatures.";
         }
         public void OrkDescription() {
-            _description = "";
+            _description = "Orks are simple beings. They sleep when they are tired, they eat when they are hungry and they drink " +
+                "when they are thirsty. They are kown for their simple life style and most of them are happy with that. However, " +
+                "they can be easy targets for mind controlling foes because of their lack of intellegence.";
         }
         public void KnightDescription() {
-            _description = "";
+            _description = "Knights are made by the kingdom, to defend themselves from monsters and creatures. Only the bravest and strongest humans" +
+                " are chosen to become a Knight. But because of their heavy armor, they drown easily when exposed to water.";
         }
         public void KrakenDescription() {
             _description = "Legends say kraken were created by power hungry wizards who experimented with creation magic." +
@@ -240,7 +239,9 @@ namespace Models {
                 "why they are immune to all magic spells.";
         }
         public void ElfDescription() {
-            _description = "";
+            _description = "Elves are very shy creatures. Thus they rather live in rough areas with extreme conditions to avoid " +
+                "any other creatures. Except for the FireElves, because they live in a very cold area, they need Dragons to survive." +
+                "Therefor is their knowledge of Dragons immense so that they don't need to ever fear them.";
         }
 
         public void AddSpellDescription(int roll) {
@@ -277,7 +278,9 @@ namespace Models {
                 "so that Water and Ground would extinguish Fire";
         }
         public void WaterDescription() {
-            _description = "";
+            _description = "The Water god is a symbol of freedom for most creatures. Because of that, the Water god wanted to be close to all creatures and plants, " +
+                "thus created water so that everyone and everything would need it. Water was created to be able to get everywhere, therefor " +
+                "does the Water god hate all solid things, because for them, freedom is a fluid and flexible and available for everyone.";
         }
         public void NormalDescription() {
             _description = "Normal Magic was created by Humans in order to defend themselves against the gods. Humans learned to use " +
@@ -285,7 +288,10 @@ namespace Models {
                 "survive their power.";
         }
         public void GroundDescription() {
-            _description = "";
+            _description = "There was a long forgotten tale, that tells the story of how the Ground god became the symbol of neutrality. " +
+                "The Ground god accepted everyone, even Darkness, and believed in the balance of nature. The god of Light though, " +
+                "wanted to defeat Darkness forever. This sparked a fight between the Ground god and the god of Light, which still " +
+                "continues to this day.";
         }
         public void IceDescription() {
             _description = "The Ice god loved only the most beautiful things and began to freeze Water and Ground so they could create " +

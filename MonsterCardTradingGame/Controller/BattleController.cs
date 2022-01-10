@@ -49,14 +49,15 @@ namespace MonsterCardTradingGame.Controller {
                 }
 
                 _battle = new Battle(_player1, _player2);
-                _battle.StartBattle();
+                response.Body = _battle.StartBattle();
 
                 _userRepo.Update(_player1);
                 _scoreRepo.Update(_player1);
                 _userRepo.Update(_player2);
                 _scoreRepo.Update(_player2);
 
-                response.Status = (HttpStatus)200;
+
+                response.Status = 200;
                 return response;
             }
 

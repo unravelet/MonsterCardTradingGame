@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Npgsql;
+﻿using Npgsql;
 
 namespace DAL.DB {
     public class Database {
@@ -14,9 +9,9 @@ namespace DAL.DB {
 
         public Database(string connString) {
             conn = new NpgsqlConnection(connString);
-            
+
             OpenCon();
-            
+
         }
 
         public bool OpenCon() {
@@ -25,7 +20,7 @@ namespace DAL.DB {
             }
             Console.WriteLine("opening connection to database");
             conn.Open();
-            
+
             if (conn.State == System.Data.ConnectionState.Open) {
                 return true;
             }
@@ -48,22 +43,16 @@ namespace DAL.DB {
 
         public bool ExecuteNonQuery(NpgsqlCommand cmd) {
             cmd.Connection = conn;
-            if(cmd.ExecuteNonQuery() == -1) {
+            if (cmd.ExecuteNonQuery() == -1) {
                 return false;
             }
 
             return true;
-
         }
 
         public NpgsqlDataReader ExecuteQuery(NpgsqlCommand cmd) {
             cmd.Connection = conn;
             return cmd.ExecuteReader();
         }
-
-        
-        
-
-       
     }
 }

@@ -2,11 +2,6 @@
 using Models;
 using MonsterCardTradingGame.Server;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonsterCardTradingGame.Controller {
     //SHOW SCOREBOARD
@@ -29,10 +24,9 @@ namespace MonsterCardTradingGame.Controller {
             if (_userRepo.UserLogin(user.Username, user.Password)) {
                 _score = _scoreRepo.GetScoreData(user.Username);
 
+
                 response.Body += _score.PrintStats();
-
-
-                response.Status = (HttpStatus)200;
+                response.Status = 200;
                 return response;
             }
 

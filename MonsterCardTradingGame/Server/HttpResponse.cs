@@ -34,12 +34,12 @@
             }
         }
 
-        
+
         public void AddHeader(string key, string value) {
             _headers.Add(key, value);
         }
 
-        public HttpStatus Status { get; set; }
+        public int Status { get; set; }
 
 
 

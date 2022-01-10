@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MonsterCardTradingGame.Server {
+﻿namespace MonsterCardTradingGame.Server {
     public class HttpReader {
 
         public HttpRequest ReadRequest(StreamReader streamReader) {
@@ -14,11 +8,11 @@ namespace MonsterCardTradingGame.Server {
             while ((line = streamReader.ReadLine()) != null) {
                 Console.WriteLine(line);
 
-                if(line.Length == 0) {
+                if (line.Length == 0) {
                     break;
                 }
 
-                if(request.Method == null) {
+                if (request.Method == null) {
                     var parts = line.Split(' ');
                     request.Method = parts[0];
                     request.Path = parts[1];
@@ -31,10 +25,10 @@ namespace MonsterCardTradingGame.Server {
             }
 
             string body = "";
-            while(streamReader.Peek() >= 0) {
+            while (streamReader.Peek() >= 0) {
                 body += (char)streamReader.Read();
             }
-           
+
             request.Body = body;
             Console.WriteLine(request.Method + " " + request.Path + " " + request.Version);
 

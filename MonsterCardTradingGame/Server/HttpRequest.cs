@@ -7,7 +7,7 @@
         public string _body;
         public string _version;
 
-        public HttpRequest() { 
+        public HttpRequest() {
             _headers = new Dictionary<string, string>();
         }
 
@@ -45,6 +45,6 @@
             _headers.Add(key, value);
         }
 
-        
+
     }
 }

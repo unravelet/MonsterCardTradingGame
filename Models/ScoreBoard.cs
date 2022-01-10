@@ -20,14 +20,14 @@
                 ":\nScore: " + Score +
                 "\nWins: " + Wins +
                 "\nLosses: " + Losses +
-                "\nWin-Lose-Ratio: " + WinLoseRatio + "%";
+                "\nWin-Lose-Ratio: " + WinLoseRatio;
 
             Console.WriteLine(stats);
             return stats;
 
         }
 
-        
+
 
     }
 }

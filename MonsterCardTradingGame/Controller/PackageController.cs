@@ -2,11 +2,6 @@
 using Models;
 using MonsterCardTradingGame.Server;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonsterCardTradingGame.Controller {
     //AQUIRE PACKAGE
@@ -24,23 +19,24 @@ namespace MonsterCardTradingGame.Controller {
         public override HttpResponse Post(HttpRequest request) {
             User user = JsonConvert.DeserializeObject<User>(request.Body);
             HttpResponse response = new HttpResponse();
-            
+
 
             if (_userRepo.UserLogin(user.Username, user.Password)) {
-               
+
                 user = _userRepo.FindUser(user.Username);
                 user.BuyPackage(user);
-                
-                for (int i = 0; i < user._stack.Count; i++) { 
+
+                for (int i = 0; i < user._stack.Count; i++) {
                     _cardRepo.Create(user._stack[i]);
+                    response.Body += user._stack[i].Name + "\n";
                 }
 
                 _userRepo.Update(user);
 
-                response.Status = (HttpStatus)200;
+                response.Status = 200;
                 return response;
             }
-           
+
             return response;
         }
 

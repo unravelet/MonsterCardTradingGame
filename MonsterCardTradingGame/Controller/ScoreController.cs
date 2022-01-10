@@ -2,15 +2,10 @@
 using Models;
 using MonsterCardTradingGame.Server;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonsterCardTradingGame.Controller {
     //SHOW SCOREBOARD
-    public class ScoreController : HttpController{
+    public class ScoreController : HttpController {
 
         UserRepository _userRepo;
         ScoreRepository _scoreRepo;
@@ -29,14 +24,14 @@ namespace MonsterCardTradingGame.Controller {
             _scores = new List<ScoreBoard>();
 
             if (_userRepo.UserLogin(user.Username, user.Password)) {
-                 _scores = _scoreRepo.GetAllScores();
+                _scores = _scoreRepo.GetAllScores();
 
                 for (int i = 0; i < _scores.Count; i++) {
                     response.Body += _scores[i].PrintStats();
                 }
 
 
-                response.Status = (HttpStatus)200;
+                response.Status = 200;
                 return response;
             }
 

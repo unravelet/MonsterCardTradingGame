@@ -1,33 +1,48 @@
 ﻿using DAL.DB;
 using Models;
 using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Repository {
     public class DeckRepository : IRepository<Card> {
         public Database _db;
-        public DeckRepository(Database db) { 
+        public DeckRepository(Database db) {
             _db = db;
         }
         public bool Create(Card data) {
             string id = Guid.NewGuid().ToString();
+            if (!CheckFullDeck(data.Owner)) {
+                string sql = "INSERT INTO deck (id, owner, cardname, damage, speed, element, monster, isSpell, description) Values (@id,@o,@n,@d,@s,@e,@m,@is,@de)";
 
-            string sql = "INSERT INTO deck (id, owner, cardname, damage, speed, element, monster, isSpell, description) Values (@id,@o,@n,@d,@s,@e,@m,@is,@de)";
+                NpgsqlCommand cmd = new NpgsqlCommand(sql);
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters.AddWithValue("o", data.Owner);
+                cmd.Parameters.AddWithValue("n", data.Name);
+                cmd.Parameters.AddWithValue("d", data.Damage);
+                cmd.Parameters.AddWithValue("s", data.Speed);
+                cmd.Parameters.AddWithValue("e", Convert.ToInt32(data.ElementType));
+                cmd.Parameters.AddWithValue("m", Convert.ToInt32(data.MonsterType));
+                cmd.Parameters.AddWithValue("is", data.IsSpell);
+                cmd.Parameters.AddWithValue("de", data.Description);
 
+                if (_db.ExecuteNonQuery(cmd)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                return Update(data);
+            }
+
+
+
+        }
+
+        public bool Delete(string name) {
+            string sql = "DELETE FROM deck WHERE owner = @u";
             NpgsqlCommand cmd = new NpgsqlCommand(sql);
-            cmd.Parameters.AddWithValue("id", id);
-            cmd.Parameters.AddWithValue("o", data.Owner);
-            cmd.Parameters.AddWithValue("n", data.Name);
-            cmd.Parameters.AddWithValue("d", data.Damage);
-            cmd.Parameters.AddWithValue("s", data.Speed);
-            cmd.Parameters.AddWithValue("e", Convert.ToInt32(data.ElementType));
-            cmd.Parameters.AddWithValue("m", Convert.ToInt32(data.MonsterType));
-            cmd.Parameters.AddWithValue("is", data.IsSpell);
-            cmd.Parameters.AddWithValue("de", data.Description);
+            cmd.Parameters.AddWithValue("u", name);
 
             if (_db.ExecuteNonQuery(cmd)) {
                 return true;
@@ -35,10 +50,6 @@ namespace DAL.Repository {
             else {
                 return false;
             }
-        }
-
-        public bool Delete(string name) {
-            throw new NotImplementedException();
         }
 
         public Card Read(string name) {
@@ -50,7 +61,14 @@ namespace DAL.Repository {
         }
 
         public bool Update(Card data) {
-            throw new NotImplementedException();
+            if (Delete(data.Owner)) {
+
+                return Create(data);
+
+            }
+            else {
+                return false;
+            }
         }
 
         public bool CheckFullDeck(string owner) {
@@ -65,14 +83,14 @@ namespace DAL.Repository {
                         counter++;
                     }
                 }
-                
+
             }
-            if(counter == 4) {
+            if (counter == 4) {
                 return true;
             }
             else {
-                return false; 
-            }  
+                return false;
+            }
         }
 
         public bool CheckEmptyDeck(string owner) {
@@ -100,7 +118,7 @@ namespace DAL.Repository {
         public List<Card> GetUserDeck(string username) {
             List<Card> deck = new List<Card>();
 
-            if(CheckFullDeck(username)) {
+            if (CheckFullDeck(username)) {
                 string sql = "SELECT * FROM deck WHERE owner=@o";
                 NpgsqlCommand cmd = new NpgsqlCommand(sql);
                 cmd.Parameters.AddWithValue("o", username);
@@ -120,7 +138,7 @@ namespace DAL.Repository {
                             reader.GetValue(8).ToString()                               //description
                             ));
                     }
-                    
+
                 }
                 return deck;
             }

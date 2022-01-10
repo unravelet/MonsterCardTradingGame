@@ -1,13 +1,8 @@
 ﻿using DAL.DB;
 using DAL.Repository;
 using MonsterCardTradingGame.Controller;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonsterCardTradingGame.Server {
     public class HttpServer {
@@ -40,13 +35,13 @@ namespace MonsterCardTradingGame.Server {
                 TcpClient s = _listener.AcceptTcpClient();
                 HttpProcessor processor = new HttpProcessor(s, this);
                 new Thread(processor.Process).Start();
-                Thread.Sleep(1); 
+                Thread.Sleep(1);
             }
         }
 
-        
 
-        public void RegisterController(string path, HttpController controller) { 
+
+        public void RegisterController(string path, HttpController controller) {
             Controllers[path] = controller;
         }
 
