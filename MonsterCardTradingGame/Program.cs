@@ -5,7 +5,7 @@ using MonsterCardTradingGame.Server;
 namespace MonsterCardTradingGame {
     class Program {
         static void Main(string[] args) {
-            Database db = new Database("Host = localhost; Username = postgres; Password = KnautschgesichtmitDatenbank; Database = MCTG");
+            Database db = new Database("Host = localhost; Username = postgres; Password = ; Database = MCTG");
             Console.WriteLine("Simple HTTP-Server!");
             Console.CancelKeyPress += (sender, e) => Environment.Exit(0);
 
